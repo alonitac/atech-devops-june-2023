@@ -5,5 +5,3 @@ X=7
 mkdir $X
 
 printenv
-
-if [ ... ]
