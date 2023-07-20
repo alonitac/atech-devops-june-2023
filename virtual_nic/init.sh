@@ -1,5 +1,5 @@
 # install iperf
-apt install iperf tc
+apt install iperf tc -y
 
 # create a namespace for each network interface
 ip netns add ns1
