@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Greeting
-echo "Greetings, $USER!"
+echo "Hello $USER!"
 
 # Setting environment variable
 export COURSE_ID="DevOpsBootcampElevation"
