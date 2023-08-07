@@ -9,7 +9,7 @@ export COURSE_ID="DevOpsBootcampElevation"
 # Checking and adjusting permissions for .token file
 if [ -f ~/.token ]; then
     if [[ $(stat -c '%a' ~/.token) != "600" ]]; then
-        echo 'Warning: The .token file permissions are too permissive.'
+        echo 'Warning: .token file has too open permissions'
     fi
 fi
 
