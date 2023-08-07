@@ -1,4 +1,3 @@
-# your solution here...
 #!/bin/bash
 
 # Greeting
