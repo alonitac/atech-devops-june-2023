@@ -1,17 +1,29 @@
 
 ## Merge conflicts 
 
+
+
+kjkj
+kjkj
 Occasionally, this process of merging doesn't go smoothly. 
 If you changed the same part of the same file differently in the two branches you're merging, Git won't be able to merge them cleanly.
 
-Let's simulate this scenario. 
+Let's simulate this scenario. fsdfsdf
 
-1. Checkout branch `master`.
+1. Checkout bran
+2. 
+3. sdfsdfsdf
+4. dsfsdfsd
+5. ch `master`.fsdf
 2. Create the following commits structure, as detailed below:   
    ![](merge_conflict.png)
    1. In branch `master` create a file called `file1` and commit it. 
    2. Check out a new branch called `dev`. In that branch create a file called `file2` with the below content and commit it:
       ```text
+      
+      
+      
+      
       Apple
       Banana
       Orange
