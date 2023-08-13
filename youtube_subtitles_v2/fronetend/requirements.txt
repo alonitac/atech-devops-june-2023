@@ -1,0 +1,4 @@
+flask
+loguru
+locust
+boto3

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YouTube URL Submission</title>
+      <style>
+    /* Spinner container */
+    .spinner {
+      display: inline-block;
+      position: relative;
+      width: 40px;
+      height: 40px;
+    }
+
+    /* Spinner animation */
+    .spinner::before {
+      content: "";
+      box-sizing: border-box;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 4px solid #ccc; /* You can change the color here */
+      border-top-color: #007bff; /* Change this to the desired spinner color */
+      animation: spinnerAnimation 1s linear infinite;
+    }
+
+    @keyframes spinnerAnimation {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+    <div style="text-align: center; padding: 50px;">
+        <h1>Welcome to the YouTube Subtitle Service!</h1>
+        <form id="youtubeForm" method="post" action="/submit">
+            <p style="padding: 2px 2px; font-size: 12px; color: #007bff; border: none;">E.g. https://www.youtube.com/watch?v=RjEdmrxjIHQ </p>
+            <input type="text" name="youtube_url" placeholder="Enter YouTube URL" style="width: 500px; padding: 10px;">
+            <br><br>
+            <button type="submit" style="padding: 10px 20px; font-size: 16px; background-color: #007bff; color: #fff; border: none; cursor: pointer;">Submit</button>
+        </form>
+        <div id="statusContainer" style="display: none;">
+            <br><br>
+            <div id="spinner" class="spinner"></div>
+            <div id="responseText" style="font-size: 20px;"></div>
+        </div>
+    </div>
+    <script>
+        const form = document.getElementById('youtubeForm');
+        const statusContainer = document.getElementById('statusContainer');
+        const spinner = document.getElementById('spinner');
+        const responseText = document.getElementById('responseText');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            statusContainer.style.display = 'block';
+            form.style.display = 'none';
+            const formData = new FormData(form);
+            fetch('/submit', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+
+                if (data.status === 200) {
+                    responseText.textContent = data.response;
+                    spinner.style.display = 'none';
+                } else {
+                    console.error('Error:', data.response);
+                }
+            })
+            .catch(error => console.error('Error submitting form:', error));
+        });
+    </script>
+</body>
+</html>
