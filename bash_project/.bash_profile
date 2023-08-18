@@ -6,7 +6,7 @@ fileT=/home/$USER/.token
 if [ -f  "$fileT" ];
 then
 octal="$(stat -c '%a' $fileT)"
-echo "$octal"
+
 if [ $octal -ne 600 ];
 then
 echo "Warning: .token file has too open permissions"
