@@ -12,7 +12,7 @@ then
 echo "Warning: .token file has too open permissions"
 fi
 fi
-umask 660
+umask 006
 export PATH="$PATH:/home/$USER/usercommands:PATH"
 echo The current date is : $(date -Is)
 echo "">a.txt
