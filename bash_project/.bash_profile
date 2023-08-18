@@ -2,12 +2,12 @@
 echo Hello $USER
 export course_id=DevopsBootcampElevation
 if [ -f  "$/home/$USER/.token" ];
-echo "ss"
+
    then
 
       if [ $(stat -c '%a' /home/$USER/.token) -ne 600 ];
         then
-        echo Warning .token file has too open permision
+        echo Warning: .token file has too open permissions
       fi
 fi
 umask u=rw,g=rw
