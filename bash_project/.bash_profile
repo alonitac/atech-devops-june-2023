@@ -1,9 +1,11 @@
 #!/bin/bash
 echo Hello $USER
 export course_id=DevopsBootcampElevation
-if [ -f  "$/home/$USER/.token" ];
+
+fileT=/home/$USER/.token
+if [ -f  "$fileT" ];
 then
-octal="$(stat -c '%a' /home/$USER/.token)"
+octal="$(stat -c '%a' $fileT)"
 echo "$octal"
 if [ $octal -ne 600 ];
 then
