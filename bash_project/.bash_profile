@@ -1,6 +1,6 @@
 #!/bin/bash
 echo Hello $USER
-export course_id=DevopsBootcampElevation
+export COURSE_ID="DevOpsBootcampElevation"
 
 fileT=/home/$USER/.token
 if [ -f  "$fileT" ];
