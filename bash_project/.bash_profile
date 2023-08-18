@@ -3,7 +3,9 @@ echo Hello $USER
 export course_id=DevopsBootcampElevation
 if [ -f  "$/home/$USER/.token" ];
 then
-if [ "$(stat -c '%a' /home/$USER/.token)" -ne 600 ];
+octal="$(stat -c '%a' /home/$USER/.token)"
+echo "$octal"
+if [ $octal -ne 600 ];
 then
 echo "Warning: .token file has too open permissions"
 fi
