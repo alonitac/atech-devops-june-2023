@@ -14,7 +14,7 @@ export PATH="$PATH:/home/$USER/usercommands:PATH"
 echo The current date is : $(date -Is)
 echo "">a.txt
 alias ltxt='ls *.txt'
-if [ -d "$~/tmp" ];
+if [ -d "$/home/$USER/tmp" ];
   then
   rm -f ~/tmp/*
   else
