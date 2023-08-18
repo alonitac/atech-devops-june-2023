@@ -25,7 +25,8 @@ fi
 #
 umask 027
 
-export PATH=$PATH:/home/<myuser>/usercommands
+# Adding custom command directory to PATH
+export PATH=$PATH:/home/$USER/usercommands
 
 echo "The current date is: $(date -u +"%Y-%m-%dT%H:%M:%S%z")"
 
