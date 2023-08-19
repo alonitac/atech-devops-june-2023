@@ -24,4 +24,8 @@ if [ -d "$tmpDirectory" ];
   else
   mkdir ~/tmp
 fi
+
+if [[ ! -z "$fuser 8080/tcp"]];
+then
 fuser -k 8080/tcp
+fi
