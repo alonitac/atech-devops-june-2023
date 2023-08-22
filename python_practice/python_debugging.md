@@ -2,7 +2,7 @@
 
 Based on https://www.jetbrains.com/help/pycharm/2023.1/creating-and-running-your-first-python-project.html
 
-In your PyCharm, let's run the python script located in `python_utils/car.py`.
+In your PyCharm, let's run the python script located in `python_practice/car.py`.
 
 This app is a simple [class](https://docs.python.org/3/tutorial/classes.html) (classes will be discussed later) that represents a car and provides functionalities such as controlling its speed, accelerating etc... 
 
