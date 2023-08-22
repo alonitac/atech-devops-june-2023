@@ -16,4 +16,5 @@ def list_diff(elements):
 
 if __name__ == '__main__':
     print(list_diff([1, 2, 3, 8, 77, 0]))
+    print("Test")
 
