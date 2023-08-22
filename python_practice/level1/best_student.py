@@ -22,6 +22,7 @@ def best_student(grades):
 
 
 if __name__ == '__main__':
+    print("Tsst")
     print(best_student({
         "Ben": 78,
         "Dan": 88,
