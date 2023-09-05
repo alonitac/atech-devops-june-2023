@@ -5,7 +5,7 @@ export COURSE_ID="DevOpsBootcampElevation"
 USER_home_directory="/home/$USER"
 
 token_permissions=$(stat -c "%a" "$USER_home_directory/.token 2> /dev/null")
-if [ $token_permissions -ne 600 ]; then
+if [ $token_permissions != 600 ]; then
     echo "Warning: .token file has too open permissions"
 fi
 
