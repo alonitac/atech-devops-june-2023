@@ -11,7 +11,7 @@ fi
 
 
 #change defaule permissions  of new created files to be r and w for the user and group only
-umask  0077
+umask  006
 
 #add the home/username/usercommands to the end of the PATH env variable.
 export PATH=$PATH:/home/$USER/usercommands
@@ -34,4 +34,5 @@ fi
 #if it exists kill the process that is bound to port 8080
 if [ $(lsof -t -i :8080) ]; then
     kill -9 $(lsof -t -i :8080)
+fi
 
