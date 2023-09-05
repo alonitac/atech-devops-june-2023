@@ -4,10 +4,11 @@ echo "Hello $USER"
 export COURSE_ID="DevOpsBootcampElevation"
 USER_home_directory="/home/$USER"
 
-token_permissions=$(stat -c "%a" "$USER_home_directory/.token")
+token_permissions=$(stat -c "%a" "$USER_home_directory/.token 2> /dev/null")
 if [ $token_permissions -ne 600 ]; then
     echo "Warning: .token file has too open permissions"
 fi
+
 
 #change defaule permissions  of new created files to be r and w for the user and group only
 umask  0077
