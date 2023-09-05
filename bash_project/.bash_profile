@@ -1,5 +1,5 @@
 # your solution here...
-cho Hello $USER
+echo Hello $USER
 export COURSE_ID=DevOpsBootcampElevation
 
 token_file="$HOME/.token"
