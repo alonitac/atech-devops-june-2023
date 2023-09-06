@@ -2,13 +2,10 @@
 echo Hello $USER
 export COURSE_ID=DevOpsBootcampElevation
 
-token_file="$HOME/.token"
-desired_permissions="600"
-if [[ -e "$token_file" ]]; then
-    actual_permissions=$(stat -c %a "$token_file")
-    if [[ "$actual_permissions" != "$desired_permissions" ]]; then
-        echo "Warning: $token_file file has too open permissions"
-    fi
+USER_home_dir="/home/$USER"
+token_permissions=$(stat -c "%a" $USER_home_dir/.token 2> /dev/null)
+if [ $token_permissions != 600 ]; then
+    echo "Warning: .token file has too open permissions"
 fi
 
 # Set umask for new files
