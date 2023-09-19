@@ -1,4 +1,4 @@
-REGION="Frankfurt"
+REGION="eu-central-1"
 VPC_ID="vpc-0ee605ab462d9f92b"
 PUBLIC_INSTANCE_ID="i-0342cd4263d707d21"
 PRIVATE_INSTANCE_ID="i-09edffd7778a1aedb"
