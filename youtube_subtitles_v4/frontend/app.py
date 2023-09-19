@@ -74,4 +74,4 @@ if __name__ == '__main__':
     except Exception as e:
         logger.error(str(e))
 
-    app.run(port=8080)
+    app.run(port=8080, host='0.0.0.0')
