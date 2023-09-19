@@ -8,7 +8,7 @@ fi
 
 #check if missing bastion IP address
 if [ $# -lt 1 ]; then
-	echo "Please provide bastion IP address"
+	echo "Pleast provide bastion IP address"
 	exit 5
 fi
 
@@ -31,7 +31,4 @@ elif [ $# -gt 2 ]; then
 	ssh -i $KEY_PATH ubuntu@$bastion_ip "./private_connect.sh $private_ip $command"
 	echo "case3"
 
-
 fi
-
-# TODO your solution here
