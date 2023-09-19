@@ -1,6 +1,6 @@
 Local DNS Server IP
 -------------------
-127.0.0.53
+10.0.0.208
 
 
 Default gateway IP
@@ -11,11 +11,15 @@ Default gateway IP
 
 DHCP IP allocation sys-logs
 -------------------
-Sep 17 14:30:00 ip-10-0-0-85 dhclient[340]: Internet Systems Consortium DHCP Client 4.4.1
-Sep 17 14:30:00 ip-10-0-0-85 dhclient[340]: DHCPDISCOVER on eth0 to 255.255.255.255 port 67 interval 3 (xid=0x6ea5b409)
-Sep 17 14:30:00 ip-10-0-0-85 dhclient[340]: DHCPOFFER of 10.0.0.85 from 10.0.0.1
-Sep 17 14:30:00 ip-10-0-0-85 dhclient[340]: DHCPREQUEST for 10.0.0.85 on eth0 to 255.255.255.255 port 67 (xid=0x9b4a56e)
-Sep 17 14:30:00 ip-10-0-0-85 dhclient[340]: DHCPACK of 10.0.0.85 from 10.0.0.1 (xid=0x6ea5b409)
-Sep 17 14:30:00 ip-10-0-0-85 systemd-networkd[379]: eth0: DHCPv4 address 10.0.0.85/24 via 10.0.0.1
-Sep 17 14:30:00 ip-10-0-0-85 systemd-networkd[379]: eth0: DHCPv6 lease lost
-Sep 17 14:30:00 ip-10-0-0-85 systemd-networkd[22375]: eth0: DHCPv4 address 10.0.0.85/24 via 10.0.0.1
+Sep 19 17:07:52 ip-10-0-0-208 dhclient[340]: Internet Systems Consortium DHCP Client 4.4.1
+Sep 19 17:07:52 ip-10-0-0-208 dhclient[340]: DHCPDISCOVER on eth0 to 255.255.255.255 port 67 interval 3 (xid=0xe1ca0b3f)
+Sep 19 17:07:52 ip-10-0-0-208 dhclient[340]: DHCPOFFER of 10.0.0.208 from 10.0.0.1
+Sep 19 17:07:52 ip-10-0-0-208 dhclient[340]: DHCPREQUEST for 10.0.0.208 on eth0 to 255.255.255.255 port 67 (xid=0x3f0bcae1)
+Sep 19 17:07:52 ip-10-0-0-208 dhclient[340]: DHCPACK of 10.0.0.208 from 10.0.0.1 (xid=0xe1ca0b3f)
+Sep 19 17:07:52 ip-10-0-0-208 systemd-networkd[379]: eth0: DHCPv4 address 10.0.0.208/24 via 10.0.0.1
+Sep 19 17:24:47 ip-10-0-0-208 dhclient[354]: Internet Systems Consortium DHCP Client 4.4.1
+Sep 19 17:24:47 ip-10-0-0-208 dhclient[354]: DHCPDISCOVER on eth0 to 255.255.255.255 port 67 interval 3 (xid=0x97d3d12b)
+Sep 19 17:24:47 ip-10-0-0-208 dhclient[354]: DHCPOFFER of 10.0.0.208 from 10.0.0.1
+Sep 19 17:24:47 ip-10-0-0-208 dhclient[354]: DHCPREQUEST for 10.0.0.208 on eth0 to 255.255.255.255 port 67 (xid=0x2bd1d397)
+Sep 19 17:24:47 ip-10-0-0-208 dhclient[354]: DHCPACK of 10.0.0.208 from 10.0.0.1 (xid=0x97d3d12b)
+Sep 19 17:24:47 ip-10-0-0-208 systemd-networkd[373]: eth0: DHCPv4 address 10.0.0.208/24 via 10.0.0.1
