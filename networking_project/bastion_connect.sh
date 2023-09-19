@@ -17,5 +17,4 @@ ssh -t -i "$KEY_PATH" "$USER"@"$PUBLIC_INSTANCE_IP" "ssh -i key.pem  ubuntu@10.0
 
 
 
-
 # TODO your solution here
