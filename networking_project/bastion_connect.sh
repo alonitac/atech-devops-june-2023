@@ -11,12 +11,12 @@ if [ "$#" -lt 1 ]; then
 fi
 BASTION_IP=$1
 if [ "$#" -eq 1 ]; then
-	ssh -tt -i $KEY_PATH ubuntu@$BASTION_IP
+	ssh -i $KEY_PATH ubuntu@$BASTION_IP
 	echo "succesfully connected to bastion $BASTION_IP"
 	#exit 0
 elif [ "$#" -eq 2 ]; then
 	PRIVATE_IP=$2
-	ssh -i $KEY_PATH ubuntu@$BASTION_IP "./remote.sh $PRIVATE_IP"
+	ssh -tt -i $KEY_PATH ubuntu@$BASTION_IP "./remote.sh $PRIVATE_IP"
 	#exit 0
 
 elif [ "$#" -gt 2 ]; then
@@ -25,4 +25,5 @@ elif [ "$#" -gt 2 ]; then
 	ssh -i $KEY_PATH ubuntu@$BASTION_IP "./remote.sh $PRIVATE_IP '$COMMAND'"
 	#exit 0
 fi
+#just to push
 	
