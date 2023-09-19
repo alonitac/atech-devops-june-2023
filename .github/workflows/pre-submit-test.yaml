@@ -13,7 +13,7 @@ jobs:
           sudo bash test.sh
   NetworkingProjectTest:
     runs-on: ubuntu-latest
-    if: ${{ startsWith(github.ref, 'refs/heads/networking_ex/')  }}
+    if: ${{ startsWith(github.ref, 'refs/heads/networking_project/')  }}
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -21,19 +21,19 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: hashicorp/setup-terraform@v2
-      - name: Networking Ex - VPC Check
+      - name: Networking Project - VPC Check
         run: |
-          cd 03_networking_ex/test
+          cd networking_project/test
           bash test_vpc.sh
-      - name: Networking Ex - Basion Check
+      - name: Networking Project - Bastion Check
         run: |
           mkdir -p ~/.ssh
-          cp 03_networking_ex/test/ssh_config ~/.ssh/config
-          cd 03_networking_ex/test
+          cp networking_project/test/ssh_config ~/.ssh/config
+          cd networking_project/test
           bash test_bastion.sh
-      - name: Networking Ex - Keys Rotation Check
+      - name: Networking Project - Keys Rotation Check
         run: |
-          cd 03_networking_ex/test
+          cd networking_project/test
           bash test_rotation.sh
       - uses: actions/setup-python@v1
       - uses: BSFishy/pip-action@v1
@@ -41,16 +41,16 @@ jobs:
           packages: |
             aiohttp
       - run: |
-          cd 03_networking_ex/tls_webserver
-      - name: Networking Ex - TLS Hnadshake - Getting Eve certificate
+          cd networking_project/tls_webserver
+      - name: Networking Project - TLS Handshake - Getting Eve certificate
         run: |
-          cd 03_networking_ex
+          cd networking_project
           bash test/test_tls.sh eve
-      - name: Networking Ex - TLS Hnadshake - Bad client test message encryption
+      - name: Networking Project - TLS Handshake - Bad client test message encryption
         run: |
-          cd 03_networking_ex
+          cd networking_project
           bash test/test_tls.sh bad-msg
-      - name: Networking Ex - TLS Hnadshake - Full handshake process
+      - name: Networking Project - TLS Handshake - Full handshake process
         run: |
-          cd 03_networking_ex
+          cd networking_project
           bash test/test_tls.sh
