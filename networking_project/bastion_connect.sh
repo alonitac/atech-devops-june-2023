@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 if [ -z "$KEY_PATH" ];
 then
   echo "KEY_PATH env var is expected"
