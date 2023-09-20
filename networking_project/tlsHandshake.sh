@@ -27,7 +27,6 @@ res_1=$(curl -X POST -H "Content-Type: application/json" -d '{
 }' http://16.170.227.56:8080/keyexchange)
 
 
-
 massage=$(echo "$res_1" | jq -r '.encryptedSampleMessage')
 echo $massage > original_message.txt
 
