@@ -65,13 +65,21 @@ class Bot:
         self.send_text(msg['chat']['id'], f'Your original message: {msg["text"]}')
 
 
+class QuoteBot(Bot):
+    def handle_message(self, msg):
+        logger.info(f'Incoming message: {msg}')
+
+        if msg["text"] != 'Please don\'t quote me':
+            self.send_text_with_quote(msg['chat']['id'], msg["text"], quoted_msg_id=msg["message_id"])
+
+
 class ObjectDetectionBot(Bot):
     def handle_message(self, msg):
         logger.info(f'Incoming message: {msg}')
 
         if self.is_current_msg_photo(msg):
-            photo_path = self.download_user_photo(msg)
-
+            pass
+            # TODO download the user photo (utilize download_user_photo)
             # TODO upload the photo to S3
             # TODO send a request to the `yolo5` service for prediction
             # TODO send results to the Telegram end-user
