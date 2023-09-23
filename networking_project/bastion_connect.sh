@@ -13,9 +13,10 @@ if [[ -v KEY_PATH ]]; then
      else
 
           if [[ -v $3 ]]; then
-            ssh -A ubuntu@$1 -t ssh ubuntu@$2
+           ssh -A ubuntu@$1 -t ssh ubuntu@$2 -t eval "$3"
             else
-            ssh -A ubuntu@$1 -t ssh ubuntu@$2 -t eval "$3"
+               ssh -A ubuntu@$1 -t ssh ubuntu@$2
+
              fi
 
           fi
