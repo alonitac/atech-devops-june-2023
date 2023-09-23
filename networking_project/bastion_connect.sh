@@ -1,9 +1,7 @@
 #!/usr/bin/ssh-agent bash
 
-if [[ -z KEY_PATH ]]; then
-    echo "KEY_PATH env var is expected"
-    exit 5
-else
+if [[ -v KEY_PATH ]]; then
+
 
     if [[ -z $1 ]]; then
           echo "Please provide bastion IP address"
@@ -14,7 +12,7 @@ else
        ssh -A ubuntu@$1
      else
 
-          if [[ -z $3 ]]; then
+          if [[ -v $3 ]]; then
             ssh -A ubuntu@$1 -t ssh ubuntu@$2
             else
             ssh -A ubuntu@$1 -t ssh ubuntu@$2 -t eval "$3"
@@ -22,6 +20,9 @@ else
 
           fi
     fi
+    else     echo "KEY_PATH env var is expected"
+    exit 5
+
 fi
 
 
