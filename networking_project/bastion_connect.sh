@@ -12,6 +12,16 @@ fi
 
 if [[ -v $1]]; then
   ssh -A ubuntu@$1
+  if [[ -v $]]; then
+  ssh ubuntu@$2
+  if [[ -v $3]]; then
+
+eval "$3"
+   fi
+else
+
+
+fi
   else
   echo "Please provide bastion IP address"
   exit 5
@@ -21,14 +31,5 @@ if [[ -v $1]]; then
 
 
 
-if [[ -v $]]; then
-  ssh ubuntu@$2
-else
 
 
-fi
-
-if [[ -v $3]]; then
-
-eval "$3"
-   fi
