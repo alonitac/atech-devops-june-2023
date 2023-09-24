@@ -1,16 +1,24 @@
 Local DNS Server IP
 -------------------
-<ip-here>
+127.0.0.53
 
-Test 67
+
 
 Default gateway IP
 -------------------
-<ip-here>
+10.0.0.1
 
-Test 67
+
 
 DHCP IP allocation sys-logs
 -------------------
-<logs-here>
+Sep 24 19:37:35 ip-10-0-0-46 dhclient[345]: DHCPDISCOVER on eth0 to 255.255.255.255 port 67 interval 3 (xid=0x621df30d)
+
+Sep 24 19:37:35 ip-10-0-0-46 dhclient[345]: DHCPREQUEST for 10.0.0.46 on eth0 to 255.255.255.255 port 67 (xid=0xdf31d62)
+
+Sep 24 19:37:35 ip-10-0-0-46 dhclient[345]: DHCPOFFER of 10.0.0.46 from 10.0.0.1
+
+Sep 24 19:37:35 ip-10-0-0-46 dhclient[345]: DHCPACK of 10.0.0.46 from 10.0.0.1 (xid=0x621df30d)
+
+
 
