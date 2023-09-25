@@ -1,6 +1,6 @@
 Local DNS Server IP
 -------------------
-10.0.0.2
+10.0.0.20
 
 
 
@@ -13,8 +13,8 @@ Default gateway IP
 DHCP IP allocation sys-logs
 -------------------
 
-Sep 17 09:01:04 ip-10-0-0-159 dhclient[346]: DHCPDISCOVER on eth0 to 255.255.255.255 port 67 interval 3 (xid=0x67f91b38)
-Sep 17 09:01:04 ip-10-0-0-159 dhclient[346]: DHCPOFFER of 10.0.0.159 from 10.0.0.1
-Sep 17 09:01:04 ip-10-0-0-159 dhclient[346]: DHCPREQUEST for 10.0.0.159 on eth0 to 255.255.255.255 port 67 (xid=0x381bf967)
-Sep 17 09:01:04 ip-10-0-0-159 dhclient[346]: DHCPACK of 10.0.0.159 from 10.0.0.1 (xid=0x67f91b38)
+Sep 25 14:23:05 ip-10-0-0-20 dhclient[355]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0xffd6043b)
+Sep 25 14:23:05 ip-10-0-0-20 dhclient[355]: DHCPOFFER of 10.0.0.20 from 10.0.0.1
+Sep 25 14:23:05 ip-10-0-0-20 dhclient[355]: DHCPREQUEST for 10.0.0.20 on ens5 to 255.255.255.255 port 67 (xid=0x3b04d6ff)
+Sep 25 14:23:05 ip-10-0-0-20 dhclient[355]: DHCPACK of 10.0.0.20 from 10.0.0.1 (xid=0xffd6043b)
 
