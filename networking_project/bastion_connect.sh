@@ -30,5 +30,5 @@ elif [ $# -gt 2 ]; then
 	command=${@:3}
 	ssh -i $KEY_PATH ubuntu@$bastion_ip "./private_connect.sh $private_ip $command"
 	echo "case3"
-
+##test
 fi
