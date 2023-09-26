@@ -21,5 +21,3 @@ elif [ "$#" -gt 2 ]; then
 	COMMAND=$3
 	ssh -i $KEY_PATH ubuntu@$BASTION_IP "./remote.sh $PRIVATE_IP '$COMMAND'"
 fi
-
-
