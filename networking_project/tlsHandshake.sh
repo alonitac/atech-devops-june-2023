@@ -43,8 +43,9 @@ decrypted=$(openssl enc --aes-256-cbc -d -in encoded.txt -kfile master_key.txt -
 echo ""
 echo $decrypted
 echo ""
-if [[ $decrypted == "" ]]; then
+if [[ "$decrypted" == "" || "$decrypted" == "Server bad message" ]]; then
 	echo "Server symmetric encryption using the exchanged master-key has failed."
+	exit 6
 else
 	echo "Client-Server TLS handshake has been completed successfully"
 fi
