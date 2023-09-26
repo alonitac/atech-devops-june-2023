@@ -18,7 +18,7 @@ echo "$server_cert1" > server_cert.pem
 
 openssl verify -CAfile cert-ca-aws.pem server_cert.pem
 if [ "$?" -ne 0 ]; then 
-	echo "Server Certificate is invalid.">&2
+	echo "Server Certificate is invalid."
 	exit 5
 fi
 openssl rand -base64 32 > master_key.txt
