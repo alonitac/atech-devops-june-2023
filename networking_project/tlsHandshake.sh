@@ -7,7 +7,7 @@ res=$(curl -X POST -H "Content-Type: application/json" -d '{
       "TLS_CHACHA20_POLY1305_SHA256"
     ],
    "message": "Client Hello"
-}' 16.170.227.56:8080/clienthello)
+}' 13.51.159.51:8080/clienthello)
 
 SESSION_ID=$(echo "$res" | jq -r '.sessionID')
 echo "$res" | jq -r '.serverCert' > cert.pem
@@ -24,7 +24,7 @@ res_1=$(curl -X POST -H "Content-Type: application/json" -d '{
     "sessionID": "'$SESSION_ID'",
     "masterKey": "'$MASTER_KEY'",
     "sampleMessage": "Hi server, please encrypt me and send to client!"
-}' http://16.170.227.56:8080/keyexchange)
+}' http://13.51.159.51:8080/keyexchange)
 
 
 massage=$(echo "$res_1" | jq -r '.encryptedSampleMessage')
@@ -38,7 +38,7 @@ decrepted_var=$(<decrepted_message.txt)
 
 echo "" > decrepted_message.txt
 
-if [ "$decrepted_var" = "" ]; then
+if [ "$decrepted_var" == "" ]; then
    echo "Server symmetric encryption using the exchanged master-key has failed."
    exit 6
 else
