@@ -10,8 +10,8 @@ echo $RESPONSE | jq -r '.serverCert' > cert.pem
 
 openssl verify -CAfile cert-ca-aws.pem cert.pem
 
-if [ ! $? ]
-then 
+if [ $? -ne 0 ]
+then
 	echo "Server Certificate is invalid."
 	exit 5
 fi
@@ -26,7 +26,7 @@ echo $KEY_RESPONSE | jq -r '.encryptedSampleMessage' | base64 -d > encSampleMsgR
 
 openssl enc -d -aes-256-cbc -in encSampleMsgReady.txt -out decryptedMsg.txt -pbkdf2 -kfile masterKey
 
-if [ ! $? ] 
+if [ $? -ne 0 ]
 then 
 	echo "Server symmetric encryption using the exchanged master-key has failed."
 	exit 6
