@@ -2,5 +2,3 @@ REGION="eu-north-1"
 VPC_ID="vpc-07f4278e8cdeafcf4"
 PUBLIC_INSTANCE_ID="i-0eb2b0c5ba2c6e4b8"
 PRIVATE_INSTANCE_ID="i-00f65c451807e4aff"
-
-
