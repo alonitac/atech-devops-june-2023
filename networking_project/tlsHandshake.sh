@@ -34,12 +34,14 @@ echo $massage | base64 -d > encSampleMsgReady.txt
 decrepted=$(openssl enc --aes-256-cbc -d -in encSampleMsgReady.txt -kfile key_master.txt -pbkdf2)
 
 
-if [ "$decrepted" == "" ]; then
+if [ "$decrepted" == "Hi server, please encrypt me and send to client!" ]; then
+   echo "Client-Server TLS handshake has been completed successfully"
+
+else
    echo "Server symmetric encryption using the exchanged master-key has failed."
    exit 6
-else
-   echo "Client-Server TLS handshake has been completed successfully"
 fi
+
 
 
 # TODO Your solution here
