@@ -13,9 +13,7 @@ Default gateway IP
 DHCP IP allocation sys-logs
 -------------------
 <logs-here>
-Sep 14 16:42:28 ip-10-0-0-218 dhclient[339]: Internet Systems Consortium DHCP Client 4.4.1
 Sep 14 16:42:28 ip-10-0-0-218 dhclient[339]: DHCPDISCOVER on eth0 to 255.255.255.255 port 67 interval 3 (xid=0xcc33ee2f)
 Sep 14 16:42:28 ip-10-0-0-218 dhclient[339]: DHCPOFFER of 10.0.0.218 from 10.0.0.1
 Sep 14 16:42:28 ip-10-0-0-218 dhclient[339]: DHCPREQUEST for 10.0.0.218 on eth0 to 255.255.255.255 port 67 (xid=0x2fee33cc)
 Sep 14 16:42:28 ip-10-0-0-218 dhclient[339]: DHCPACK of 10.0.0.218 from 10.0.0.1 (xid=0xcc33ee2f)
-Sep 14 16:42:28 ip-10-0-0-218 systemd-networkd[378]: eth0: DHCPv4 address 10.0.0.218/24 via 10.0.0.1
