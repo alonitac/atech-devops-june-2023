@@ -21,9 +21,7 @@ server_encrypted=$(curl -X POST -H "Content-Type: application/json" -d '{"sessio
 
 encrypted_message=$(echo $server_encrypted | awk '{print $4}' | sed 's/.\{2\}$//' | sed -e '1s/^.//')
 #echo ""
-
 #echo ""
-
 #echo ""
 
 #encoded in base 64
