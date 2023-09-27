@@ -18,4 +18,3 @@ Sep 27 18:25:46 ip-10-0-0-252 dhclient[341]: DHCPOFFER of 10.0.0.252 from 10.0.0
 Sep 27 18:25:46 ip-10-0-0-252 dhclient[341]: DHCPREQUEST for 10.0.0.252 on eth0 to 255.255.255.255 port 67 (xid=0x7127b875)
 Sep 27 18:25:46 ip-10-0-0-252 dhclient[341]: DHCPACK of 10.0.0.252 from 10.0.0.1 (xid=0x75b82771)
 
-#
