@@ -27,7 +27,7 @@ echo $KEY_RESPONSE | jq -r '.encryptedSampleMessage' | base64 -d > encSampleMsgR
 
 DECRYPTED_MSG=$(openssl enc -d -aes-256-cbc -in encSampleMsgReady.txt -pbkdf2 -kfile masterKey)
 
-if [ $DECRYPTED_MSG ] || [ $DECRYPTED_MSG == "Server bad message" ]
+if [ -z $DECRYPTED_MSG ] || [ $DECRYPTED_MSG == "Server bad message" ]
 then 
 	echo "Server symmetric encryption using the exchanged master-key has failed."
 	exit 6
