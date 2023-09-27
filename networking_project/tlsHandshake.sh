@@ -24,7 +24,11 @@ KEY_RESPONSE=$(curl -X POST -H "Content-Type: application/json" -d '{"sessionID"
 
 echo $KEY_RESPONSE | jq -r '.encryptedSampleMessage' | base64 -d > encSampleMsgReady.txt
 
+echo "Hi server, please encrypt me and send to client!" > sampleMsg.txt
+
 openssl enc -d -aes-256-cbc -in encSampleMsgReady.txt -out decryptedMsg.txt -pbkdf2 -kfile masterKey
+
+diff decryptedMsg.txt sampleMsg.txt
 
 if [ $? -ne 0 ]
 then 
