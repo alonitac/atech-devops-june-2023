@@ -28,17 +28,13 @@ res_1=$(curl -X POST -H "Content-Type: application/json" -d '{
 
 
 massage=$(echo "$res_1" | jq -r '.encryptedSampleMessage')
-echo $massage > original_message.txt
 
 echo $massage | base64 -d > encSampleMsgReady.txt
 
-openssl enc -d -aes-256-cbc -pbkdf2 -in encSampleMsgReady.txt -out decrepted_message.txt -pass file:key_master.txt
+decrepted=$(openssl enc --aes-256-cbc -d -in encSampleMsgReady.txt -kfile key_master.txt -pbkdf2)
 
-decrepted_var=$(<decrepted_message.txt)
 
-echo "" > decrepted_message.txt
-
-if [ "$decrepted_var" == "" ]; then
+if [ "$decrepted" == "" ]; then
    echo "Server symmetric encryption using the exchanged master-key has failed."
    exit 6
 else
