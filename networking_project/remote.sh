@@ -9,4 +9,3 @@ if [ -z "$COMMAND" ]; then
 else
         ssh -i ~/new_key ubuntu@$PRIVATE_IP $COMMAND
 fi
-

@@ -1,10 +1,10 @@
 #!/bin/bash
 
-if [ -z $KEY_PATH ]; then
-        echo "KEY_PATH env var is expected">&2
-        exit 5
-fi
-
+#if [ -z $KEY_PATH ]; then
+#        echo "KEY_PATH env var is expected">&2
+#        exit 5
+#fi
+KEY_PATH=~/new_key
 if [ "$#" -lt 1 ]; then
         echo "Please provide IP address">&2
         exit 5
@@ -32,5 +32,4 @@ cp ~/tmp_key ~/new_key && rm ~/tmp_key
 cp ~/tmp_key.pub ~/new_key.pub && rm ~/tmp_key.pub
 
 echo "Key rotation completed, use the new key to connect to the private instance"
-
 
