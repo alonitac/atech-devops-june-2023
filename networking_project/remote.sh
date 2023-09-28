@@ -1,4 +1,4 @@
-#! /bin/bash
+#!/bin/bash
 
 PRIVATE_IP=$1
 COMMAND=$2
