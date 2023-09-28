@@ -7,7 +7,9 @@ client_hello=$(curl -X POST -H "Content-Type: application/json" -d '{"version": 
 SESSION_ID=$(echo $client_hello | jq -r '.sessionID')
 server_cert1=$(echo "$client_hello" | jq -r '.serverCert')
 echo "$server_cert1" > server_cert.pem
-
+wget https://raw.githubusercontent.com/alonitac/atech-devops-june-2023/main/networking_project/tls_webserver/cert-ca-aws.pem
+openssl verify -CAfile cert-ca-aws.pem server_cert.pem
+wget https://raw.githubusercontent.com/alonitac/atech-devops-june-2023/main/networking_project/tls_webserver/cert-ca-aws.pem
 openssl verify -CAfile cert-ca-aws.pem server_cert.pem
 if [ "$?" -ne 0 ]; then
 	echo "Server Certificate is invalid."
