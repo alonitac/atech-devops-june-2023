@@ -1,10 +1,6 @@
 #!/bin/bash
 
 
-# TODO your solution here
-
-#!/bin/bash
-
 
 # TODO your solution here
 
