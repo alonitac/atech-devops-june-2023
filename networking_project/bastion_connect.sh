@@ -1,11 +1,11 @@
 #!/bin/bash
 
 
-#Implement a bash script in bastion_connect.sh that connects to the private instance using the public instance.
+#Implement abash script in bastion_connect.sh that connects to the private instance using the public instance.
 #Your script should not use an explicit path to the .pem ssh key file, instead, it reads an environment variable
 #called KEY_PATH. If the variable doesn’t exist, print an error message and exit with code 5.
 
-if [[ -z "${KEY_PATH}" ]]; then
+if [ -z $KEY_PATH ]; then
 	echo "KEY_PATH env var is expected" >> /dev/stderr
 	exit 5
 fi
