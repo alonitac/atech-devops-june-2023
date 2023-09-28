@@ -21,4 +21,5 @@ else
     elif ["$#" -gt 2]
     then
         ssh -tt -i $KEY_PATH ubuntu@$1 ssh -i $KEY_PATH ubuntu@$2 ${@:3}
+    fi
 fi
