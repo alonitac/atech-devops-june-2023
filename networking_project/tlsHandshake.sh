@@ -1,7 +1,6 @@
 #!/bin/bash
 
 RESPONSE=$(curl -X POST -H "Content-Type: application/json" -d '{"version": "1.3","ciphersSuites": ["TLS_AES_128_GCM_SHA256","TLS_CHACHA20_POLY1305_SHA256" ], "message": "Client Hello"}' 3.12.146.148:8080/clienthello)
-
 SESSION_ID=$(echo $RESPONSE | jq -r '.sessionID')
 
 echo $RESPONSE | jq -r '.serverCert' > cert.pem
