@@ -18,14 +18,8 @@ else
         ssh -i $KEY_PATH ubuntu@$1
     elif ["$#" -eq 2]
     then
-        ssh -i $KEY_PATH ubuntu@$1 ssh -i $KEY_PATH ubuntu@$2
-    elif ["$#" -eq 3]
+        ssh -tt -i $KEY_PATH ubuntu@$1 ssh -i $KEY_PATH ubuntu@$2
+    elif ["$#" -gt 2]
     then
-        args_string=""
-        for ((i = 2; i <= $#; i++)); do
-            args_string="${args_string}${i}"
-        done
-        args_string="${args_string%}"
-
-        ssh -i $KEY_PATH ubuntu@$1 ssh -i $KEY_PATH ubuntu@$2 $args_string
+        ssh -tt -i $KEY_PATH ubuntu@$1 ssh -i $KEY_PATH ubuntu@$2 ${@:3}
 fi
