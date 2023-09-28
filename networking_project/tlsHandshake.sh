@@ -12,6 +12,8 @@ res=$(curl -X POST -H "Content-Type: application/json" -d '{
 SESSION_ID=$(echo "$res" | jq -r '.sessionID')
 echo "$res" | jq -r '.serverCert' > cert.pem
 
+wget https://raw.githubusercontent.com/alonitac/atech-devops-june-2023/main/networking_project/tls_webserver/cert-ca-aws.pem
+
 if ! openssl verify -CAfile cert-ca-aws.pem cert.pem; then
   echo "Server Certificate is invalid."
   exit 5
@@ -41,7 +43,6 @@ else
    echo "Server symmetric encryption using the exchanged master-key has failed."
    exit 6
 fi
-
 
 
 # TODO Your solution here
