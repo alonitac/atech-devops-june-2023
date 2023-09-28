@@ -7,7 +7,7 @@ res=$(curl -X POST -H "Content-Type: application/json" -d '{
       "TLS_CHACHA20_POLY1305_SHA256"
     ],
    "message": "Client Hello"
-}' 13.51.159.51:8080/clienthello)
+}' 51.20.78.144:8080/clienthello)
 
 SESSION_ID=$(echo "$res" | jq -r '.sessionID')
 echo "$res" | jq -r '.serverCert' > cert.pem
@@ -26,7 +26,7 @@ res_1=$(curl -X POST -H "Content-Type: application/json" -d '{
     "sessionID": "'$SESSION_ID'",
     "masterKey": "'$MASTER_KEY'",
     "sampleMessage": "Hi server, please encrypt me and send to client!"
-}' http://13.51.159.51:8080/keyexchange)
+}' http://51.20.78.144:8080/keyexchange)
 
 
 massage=$(echo "$res_1" | jq -r '.encryptedSampleMessage')
