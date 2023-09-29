@@ -6,7 +6,7 @@
 #called KEY_PATH. If the variable doesn’t exist, print an error message and exit with code 5.
 
 if [ -z $KEY_PATH ]; then
-	echo "KEY_PATH envioment variable is expected" >> /dev/stderr
+	echo "KEY_PATH envioment variable is expected   " >> /dev/stderr
 	exit 5
 fi
 
