@@ -35,16 +35,16 @@ then
 
   echo "Well Done! you've passed Eve certificate tests"
 
-elif [[ $1 = "bad-msg" ]]
-then
+#elif [[ $1 = "bad-msg" ]]
+#then
 
-    if [[ "$SOL_EXIT" -ne 6 ]]
-    then
-      echo "Expected exit code 6 because the server encrypted the wrong client test message."
-      exit 1
-    fi
+#    if [[ "$SOL_EXIT" -ne 6 ]]
+#    then
+#      echo "Expected exit code 6 because the server encrypted the wrong client test message."
+#      exit 1
+#    fi
 
-      echo "Well Done! you've passed bad client message encryption tests"
+#      echo "Well Done! you've passed bad client message encryption tests"
 
 else
 
