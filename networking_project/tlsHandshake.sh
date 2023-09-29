@@ -22,10 +22,8 @@ openssl rand -base64 32 > master_key
 
 #encrypt the master_key with the server certificate
 MASTER_KEY=$(openssl smime -encrypt -aes-256-cbc -in master_key -outform DER cert.pem | base64 -w 0)
-echo $masterkey > encoded_key.txt
 
-enc_key_req=$(curl -X POST -H "Content-Type: application/json" -d '{"sessionID": "'$SESSION_ID'","masterKey": "'$MASTER_KEY'","sampleMessage": "Hi server, Please encrypt me and send to client!"}' 18.194>
-#echo $enc_key_req
+enc_key_req=$(curl -X POST -H "Content-Type: application/json" -d '{"sessionID": "'$SESSION_ID'","masterKey": "'$MASTER_KEY'","sampleMessage": "Hi server, Please encrypt me and send to client!"}' 18.194.208.240:8080/keyexchange)
 
 msg=$(echo $enc_key_req | jq -r '.encryptedSampleMessage')
 echo $msg | base64 -d > enc_msg.txt
