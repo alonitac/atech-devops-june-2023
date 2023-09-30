@@ -7,6 +7,7 @@ sessionID=$(echo "$ClientHello" | jq -r '.sessionID')
 echo $ClientHello | jq -r '.serverCert' > cert.pem
 
 #erify the certificate
+ls
 openssl verify -CAfile cert-ca-aws.pem cert.pem
 if [ $? -ne 0 ]; then
     echo "Server Certificate is invalid."
