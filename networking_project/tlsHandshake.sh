@@ -9,7 +9,7 @@ SESSION_ID=$(echo $clienthello | jq -r '.sessionID')
 #save cert
 echo "$clienthello" | jq -r '.serverCert' > cert.pem
 
-
+wget https://raw.githubusercontent.com/alonitac/atech-devops-june-2023/main/networking_project/tls_webserver/cert-ca-aws.pem
 openssl verify -CAfile cert-ca-aws.pem cert.pem
 if [ $? -ne 0 ]; then
         echo "Server Certificate is invalid."
