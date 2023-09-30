@@ -7,6 +7,7 @@ sessionID=$(echo "$ClientHello" | jq -r '.sessionID')
 echo $ClientHello | jq -r '.serverCert' > cert.pem
 
 #erify the certificate
+wget https://raw.githubusercontent.com/alonitac/atech-devops-june-2023/main/networking_project/tls_webserver/cert-ca-aws.pem
 openssl verify -CAfile cert-ca-aws.pem cert.pem
 if [ $? -ne 0 ]; then
     echo "Server Certificate is invalid."
@@ -30,15 +31,11 @@ echo $encryptedSampleMessage | base64 -d > encSampleMsgReady.txt
 
 # Decrypt the message using OpenSSL
 decryptedSampleMessage=$(openssl enc --aes-256-cbc -d -in encSampleMsgReady.txt -Kfile master_key -pbkdf2)
-#original msg
-originalSampleMessage="Hi server, please encrypt me and send to client!"
 
-res=$(diff $decryptedSampleMessage $originalSampleMessage)
 # Compare the decrypted message with the original
-if [ $res -ne 0 ]; then
-    echo "Server symmetric encryption using the exchanged master-key has failed."
-    exit 6
-else
+if [ "$decryptedSampleMessage" == "Hi server, please encrypt me and send to client!" ]; then
     echo "Client-Server TLS handshake has been completed successfully."
-
+else
+    echo "Server symmetric encryption produced incorrect result."
+    exit 6
 fi
