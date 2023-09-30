@@ -12,8 +12,8 @@ Default gateway IP
 
 DHCP IP allocation sys-logs
 -------------------
-DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0xffd6043b)
+DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0x48d0fd55)
 DHCPOFFER of 10.0.0.20 from 10.0.0.1
-DHCPREQUEST for 10.0.0.20 on ens5 to 255.255.255.255 port 67 (xid=0x3b04d6ff)
-DHCPACK of 10.0.0.20 from 10.0.0.1 (xid=0xffd6043b)
+DHCPREQUEST for 10.0.0.20 on ens5 to 255.255.255.255 port 67 (xid=0x55fdd048)
+DHCPACK of 10.0.0.20 from 10.0.0.1 (xid=0x48d0fd55)
 

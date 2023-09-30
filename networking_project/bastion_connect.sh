@@ -32,7 +32,4 @@ else
 echo "KEY_PATH env var is expected"
     exit 5
 
-
-
-
 fi
