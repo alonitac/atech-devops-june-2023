@@ -1,4 +1,4 @@
-REGION="eu-west3"
+REGION="eu-west-3"
 VPC_ID="vpc-0c513bbbf49b52efa"
 PUBLIC_INSTANCE_ID="i-0a7c6a78c2cff8033"
 PRIVATE_INSTANCE_ID="i-0e6d6053455a907fd"
