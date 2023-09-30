@@ -22,7 +22,8 @@ else
   # Connect to private instance through public instance
   ssh -i "$KEY_PATH" -t "ubuntu@$public_ip" "./remote.sh $*"
 fi
-
-
+if [$? -ne 0]; then
+  exit 0
+fi
 
 # TODO your solution here
