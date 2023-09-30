@@ -19,14 +19,7 @@ MASTER_KEY=(openssl smime -encrypt -aes-256-cbc -in master_key -outform DER cert
 
 
 # Send the encrypted master-key to the server
-response=$(curl -X POST \
-     -H "Content-Type: application/json" \
-     -d '{
-        "sessionID": "'$SESSION_ID'",
-        "masterKey": "'$MASTER_KEY'",
-        "sampleMessage": "Hi server, please encrypt me and send to client!"
-     }' \
-     127.0.0.1:8080/keyexchange)
+response=$(curl -X POST -H "Content-Type: application/json" -d '{"sessionID": "'$SESSION_ID'","masterKey": "'$MASTER_KEY'","sampleMessage": "Hi server, please encrypt me and send to client!"}' 127.0.0.1:8080/keyexchange)
 
 # Parse the JSON response
 serverSessionID=$(echo "$response" | jq -r '.sessionID')
