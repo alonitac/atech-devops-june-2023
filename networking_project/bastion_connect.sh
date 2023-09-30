@@ -1,7 +1,6 @@
 #!/bin/bash
 
 
-
 # TODO your solution here
 
 if [[-z "${KEY_PATH}" ]]; then
