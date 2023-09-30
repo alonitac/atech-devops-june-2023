@@ -19,8 +19,7 @@ if [ -z "$2" ]; then
   # Connect to public instance
   ssh -i "$KEY_PATH" "ubuntu@$public_ip"
 else
-  private_ip="$2"
-  shift 2
+  shift 1
   # Connect to private instance through public instance
-  ssh -i "$KEY_PATH" -t "ubuntu@$public_ip" "ssh -i $KEY_PATH ubuntu@$private_ip $*"
+  ssh -i "$KEY_PATH" -t "ubuntu@$public_ip" "./remote.sh $*"
 fi
