@@ -4,7 +4,7 @@ ClientHello=$(curl -X POST -H "Content-Type: application/json" -d '{"version": "
 
 # Parse the JSON response with jq
 sessionID=$(echo "$ClientHello" | jq -r '.sessionID')
-echo "$ClientHello" | jq -r '.serverCert' > cert.pem
+echo $ClientHello | jq -r '.serverCert' > cert.pem
 
 #erify the certificate
 openssl verify -CAfile cert-ca-aws.pem cert.pem
