@@ -45,7 +45,7 @@ encryptedSampleMessage=$(jq -r ".encryptedSampleMessage" keyexchange.json )
 echo $encryptedSampleMessage | base64 -d > encSampleMsgReady.txt
 echo $encryptedSampleMessage > aa
 
-openssl enc -d -aes-256-cbc -in encSampleMsgReady.txt  -out original_message.txt -pass file: masterkey.enc
+openssl enc -d -aes-256-cbc -in encSampleMsgReady.txt  -out original_message.txt -pbkdf2 -kfile masterkey
 
 
 if [ $? -ne 0 ]; then
