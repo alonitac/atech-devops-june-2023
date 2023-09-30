@@ -1,16 +1,6 @@
 #!/bin/bash
 
-ClientHello=$(curl -X POST \
-     -H "Content-Type: application/json" \
-     -d '{
-        "version": "1.3",
-        "ciphersSuites": [
-           "TLS_AES_128_GCM_SHA256",
-           "TLS_CHACHA20_POLY1305_SHA256"
-         ],
-        "message": "Client Hello"
-     }' \
-     127.0.0.1:8080/clienthello)
+ClientHello=$(curl -X POST -H "Content-Type: application/json" -d '{"version": "1.3","ciphersSuites": ["TLS_AES_128_GCM_SHA256","TLS_CHACHA20_POLY1305_SHA256"], "message": "Client Hello"}' 127.0.0.1:8080/clienthello)
 
 # Parse the JSON response with jq
 sessionID=$(echo "$ClientHello" | jq -r '.sessionID')
