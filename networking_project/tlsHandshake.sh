@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ClientHello = $(curl -X POST \
+ClientHello=$(curl -X POST \
      -H "Content-Type: application/json" \
      -d '{
         "version": "1.3",
