@@ -1,7 +1,10 @@
 #!/bin/bash
 
 sudo apt update
+sudo apt install python3-pip
+pip install aiohttp
 sudo apt install jq
+python3 app.py
 
 curl -H "Content-Type: application/json" -X POST -o serverHello.json -d '{   "version": "1.3",
    "ciphersSuites": [
@@ -12,14 +15,11 @@ curl -H "Content-Type: application/json" -X POST -o serverHello.json -d '{   "ve
 }' http://localhost:8080/clienthello
 
 
-sessionID=$(jq ".sessionID" serverHello.json )
+sessionID=$(jq -r ".sessionID" serverHello.json )
 serverCert=$(jq -r ".serverCert" serverHello.json )
-
 echo "$serverCert" > cert.pem
 
-
 wget -O cert-ca-aws.pem https://raw.githubusercontent.com/alonitac/atech-devops-june-2023/main/networking_project/tls_webserver/cert-ca-aws.pem
-
 isValid=$(openssl verify -CAfile cert-ca-aws.pem cert.pem)
 
 if [[ "$isValid" == "cert.pem: OK" ]];then
@@ -29,24 +29,31 @@ echo “Server Certificate is invalid.”
 exit 5
 fi
 
-openssl rand -base64 32 > master-key
-
-openssl smime -encrypt -aes-256-cbc -in master-key -outform DER serverCert | base64 -w 0 > encrypted-master-key
+openssl rand -base64 32 > masterkey
+openssl smime -encrypt -aes-256-cbc -in masterkey -outform DER cert.pem | base64 -w 0 > masterkey.enc
 
 curl -H "Content-Type: application/json" -X POST -o keyexchange.json -d '{
     "sessionID": "'$sessionID'",
-    "masterKey": "'$encrypted-master-key'",
+    "masterKey": "'$(cat masterkey.enc)'",
     "sampleMessage": "Hi server, please encrypt me and send to client!"
 }' http://localhost:8080/keyexchange
 
-encryptedSampleMessage=$(jq ".encryptedSampleMessage" keyexchange.json )
 
-echo encryptedSampleMessage | base64 -d > encSampleMsgReady.txt
 
-openssl enc -d -aes-256-cbc -salt -in encSampleMsgReady.txt -out original_message.txt -pass file:encrypted-master-key
+
+encryptedSampleMessage=$(jq -r ".encryptedSampleMessage" keyexchange.json )
+echo $encryptedSampleMessage | base64 -d > encSampleMsgReady.txt
+echo $encryptedSampleMessage > aa
+
+openssl enc -d -aes-256-cbc -in encSampleMsgReady.txt  -out original_message.txt -pass file: masterkey.enc
+
 
 if [ $? -ne 0 ]; then
     echo "Server symmetric encryption using the exchanged master-key has failed."
+    exit 6
     else
       echo "Client-Server TLS handshake has been completed successfully"
 fi
+
+
+
