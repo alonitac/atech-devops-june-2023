@@ -1,4 +1,4 @@
-#!/usr/bin/ssh-agent bash
+#!/bin/bash
 
 
 
@@ -12,15 +12,15 @@ echo "Please provide bastion IP address"
 else
 if [[ -z $2 ]]; then
     ssh-add $KEY_PATH
-    ssh -A ubuntu@$1
+    ssh -i $KEY_PATH ubuntu@$1
 
 else
  if [[ -z $3 ]]; then
 
- ssh -A ubuntu@$1 -t ssh ubuntu@$2
+ ssh -i $KEY_PATH -A ubuntu@$1 -t ssh ubuntu@$2
 else
 
-               ssh -A ubuntu@$1 -t ssh ubuntu@$2 -t eval $3
+               ssh -i $KEY_PATH -A ubuntu@$1 -t ssh ubuntu@$2 -t eval $3
            fi
 
      fi
