@@ -26,14 +26,14 @@ serverSessionID=$(echo "$response" | jq -r '.sessionID')
 encryptedSampleMessage=$(echo "$response" | jq -r '.encryptedSampleMessage')
 
 # Decode the base64-encoded message
-echo "$encryptedSampleMessage" | base64 -d > encSampleMsgReady.txt
+echo $encryptedSampleMessage | base64 -d > encSampleMsgReady.txt
 
 # Decrypt the message using OpenSSL
 decryptedSampleMessage=$(openssl enc --aes-256-cbc -d -in encSampleMsgReady.txt -Kfile master_key -pbkdf2)
 #original msg
 originalSampleMessage="Hi server, please encrypt me and send to client!"
 
-res=$(diff decryptedSampleMessage originalSampleMessage)
+res=$(diff $decryptedSampleMessage $originalSampleMessage)
 # Compare the decrypted message with the original
 if [ $res -ne 0 ]; then
     echo "Server symmetric encryption using the exchanged master-key has failed."
