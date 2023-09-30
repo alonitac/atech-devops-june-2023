@@ -1,11 +1,12 @@
 #!/bin/bash
 
-RESPONSE=$(curl -X POST -H "Content-Type: application/json" -d '{"version": "1.3","ciphersSuites": ["TLS_AES_128_GCM_SHA256","TLS_CHACHA20_POLY1305_SHA256" ], "message": "Client Hello"}' 3.12.146.148:8080/clienthello)
+RESPONSE=$(curl -X POST -H "Content-Type: application/json" -d '{"version": "1.3","ciphersSuites": ["TLS_AES_128_GCM_SHA256","TLS_CHACHA20_POLY1305_SHA256" ], "message": "Client Hello"}' 18.117.188.148:8080/clienthello)
 
 SESSION_ID=$(echo $RESPONSE | jq -r '.sessionID')
 
 echo $RESPONSE | jq -r '.serverCert' > cert.pem
 
+wget https://raw.githubusercontent.com/alonitac/atech-devops-june-2023/main/networking_project/tls_webserver/cert-ca-aws.pem
 openssl verify -CAfile cert-ca-aws.pem cert.pem
 
 if [ $? -ne 0 ]
@@ -18,7 +19,7 @@ openssl rand -base64 32 > masterKey
 
 MASTER_KEY=$(openssl smime -encrypt -aes-256-cbc -in masterKey -outform DER cert.pem | base64 -w 0)
 
-KEY_RESPONSE=$(curl -X POST -H "Content-Type: application/json" -d '{"sessionID": "'$SESSION_ID'","masterKey": "'$MASTER_KEY'","sampleMessage": "Hi server, please encrypt me and send to client!"}' 3.12.146.148:8080/keyexchange)
+KEY_RESPONSE=$(curl -X POST -H "Content-Type: application/json" -d '{"sessionID": "'$SESSION_ID'","masterKey": "'$MASTER_KEY'","sampleMessage": "Hi server, please encrypt me and send to client!"}' 18.117.188.148:8080/keyexchange)
 
 echo $KEY_RESPONSE | jq -r '.encryptedSampleMessage' | base64 -d > encSampleMsgReady.txt
 
