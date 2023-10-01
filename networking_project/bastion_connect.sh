@@ -1,4 +1,4 @@
-#!/usr/bin/ssh-agent bash
+#!/bin/bash
 
-ssh-add $KEY_PATH
-ssh ubuntu@$1
+
+ssh -i $KEY_PATH ubuntu@$1
