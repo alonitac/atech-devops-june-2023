@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Client Hello
-clienthello=$(curl -X POST -H "Content-Type: application/json" -d '{"version": "1.3","ciphersSuites": ["TLS_AES_128_GCM_SHA256","TLS_CHACHA20_POLY1305_SHA256" ], "message": "Client Hello"}' 13.41.229.189:8080/clienthello)
+clienthello=$(curl -X POST -H "Content-Type: application/json" -d '{"version": "1.3","ciphersSuites": ["TLS_AES_128_GCM_SHA256","TLS_CHACHA20_POLY1305_SHA256" ], "message": "Client Hello"}' 13.42.9.140:8080/clienthello)
 
 # Echo session ID
 SESSION_ID=$(echo $clienthello | jq -r '.sessionID')
@@ -26,7 +26,7 @@ openssl rand -base64 32 > master_key
 # Encrypt the master_key with the server certificate
 MASTER_KEY=$(openssl smime -encrypt -aes-256-cbc -in master_key -outform DER cert.pem | base64 -w 0)
 
-enc_key_req=$(curl -X POST -H "Content-Type: application/json" -d '{"sessionID": "'$SESSION_ID'","masterKey": "'$MASTER_KEY'","sampleMessage": "Hi server, Please encrypt me and send to client!"}' 13.41.229.189:8080/keyexchange)
+enc_key_req=$(curl -X POST -H "Content-Type: application/json" -d '{"sessionID": "'$SESSION_ID'","masterKey": "'$MASTER_KEY'","sampleMessage": "Hi server, Please encrypt me and send to client!"}' 13.42.9.140:8080/keyexchange)
 
 msg=$(echo $enc_key_req | jq -r '.encryptedSampleMessage')
 echo $msg | base64 -d > enc_msg.txt
