@@ -14,9 +14,10 @@ fi
 PUBLIC=$1
 PRIVATE=$2
 COMMAND=$3
+echo "$COMMAND"
 if [ $# -eq 1 ]
 then 
   ssh -i $KEY_PATH ubuntu@$PUBLIC
 else
-  ssh -t -i $KEY_PATH ubuntu@$PUBLIC "./remote_connect.sh ${PRIVATE} ${COMMAND}"
+  ssh -t -i $KEY_PATH ubuntu@$PUBLIC "./remote_connect.sh $PRIVATE '$COMMAND'"
 fi 
