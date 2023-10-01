@@ -11,8 +11,8 @@ if [ -z "$1" ]; then
   exit 5
 fi
 
-public_ip="$1"
-
+public_ip=$1
+comamnd=$3
 # Check if private instance IP is provided
 if [ -z "$2" ]; then
   # Connect to public instance
@@ -20,7 +20,7 @@ if [ -z "$2" ]; then
 else
   shift 1
   # Connect to private instance through public instance
-  ssh -i "$KEY_PATH" -t "ubuntu@$public_ip" "./remote.sh $*"
+  ssh -t -i "$KEY_PATH"  "ubuntu@$public_ip" "./remote.sh '$comamnd'"
 fi
 if [ $? -ne 0 ]; then
   exit 0
