@@ -7,6 +7,7 @@
 #!/bin/bash
 publicip=$1
 privateip=$2
+
 if [ -z "${KEY_PATH}" ]; then
         echo "KEY_PATH env var is expected"
         exit 5 
