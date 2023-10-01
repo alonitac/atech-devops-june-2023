@@ -1,8 +1,8 @@
-#!/usr/bin/ssh-agent bash
+#!/bin/bash
 
 
 if [[ -n $KEY_PATH ]]; then
-  ssh-add $KEY_PATH
-  ssh -A  ubuntu@$1 " ssh ubuntu@$2 ls "
+
+  ssh -A -i $KEY_PATH ubuntu@$1 " ssh ubuntu@$2 ls "
 
 fi
