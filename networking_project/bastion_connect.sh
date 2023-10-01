@@ -1,6 +1,4 @@
-#!/usr/bin/ssh-agent bash
-
-
+#!/bin/bash
 
 
 if [[ -v $KEY_PATH ]]; then
@@ -26,7 +24,7 @@ ssh-add $KEY_PATH
 
  fi
 else
-echo "KEY_PATH env var is expectedd"
-    exit 6
+ echo "KEY_PATH env var is expected"
+  exit 5
 
 fi
