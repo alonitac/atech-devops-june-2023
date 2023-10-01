@@ -3,6 +3,6 @@
 
 if [[ -n $KEY_PATH ]]; then
 
-  ssh -i $KEY_PATH ubuntu@$1 "ssh ubuntu@$2"
+  ssh -A -i $KEY_PATH ubuntu@$1 -t ssh ubuntu@$2
 
 fi
