@@ -19,11 +19,8 @@ if [ -z "$2" ]; then
   # Connect to public instance
   ssh -i "$KEY_PATH" "ubuntu@$public_ip"
 else
+# Extract the command from the argument list
   cmnd=${@:3}
   # Connect to private instance through public instance
-  ssh -i "$KEY_PATH" -t "ubuntu@$public_ip" "./remote.sh $2 $cmnd"
-fi
-
-if [$? -ne 0]; then
-  exit 0
+  ssh -i "$KEY_PATH" -t "ubuntu@$public_ip" "./remote.sh '$2 $cmnd'"
 fi
