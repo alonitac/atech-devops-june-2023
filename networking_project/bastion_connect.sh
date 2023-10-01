@@ -26,7 +26,7 @@ ssh-add $KEY_PATH
 
  fi
 else
-echo "KEY_PATH env var is expected"
-    exit 5
+echo "KEY_PATH env var is expectedd"
+    exit 6
 
 fi

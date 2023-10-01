@@ -25,7 +25,7 @@ isValid=$(openssl verify -CAfile cert-ca-aws.pem cert.pem)
 if [[ "$isValid" == "cert.pem: OK" ]];then
 echo $isValid
 else
-echo “Server Certificate is invalid.”
+echo "Server Certificate is invalid"
 exit 5
 fi
 
