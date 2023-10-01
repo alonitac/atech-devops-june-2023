@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Check if KEY_PATH environment variable exists
 if [ -z "$KEY_PATH" ]; then
   echo "KEY_PATH env var is expected"
@@ -11,21 +12,15 @@ if [ -z "$1" ]; then
   exit 5
 fi
 
-public_ip=$1
-private_ip=$2
-comamnd=$3
+public_ip="$1"
+
 # Check if private instance IP is provided
-if [ -z "$private_ip" ]; then
+if [ -z "$2" ]; then
   # Connect to public instance
   ssh -i "$KEY_PATH" "ubuntu@$public_ip"
 else
-  shift 1
+# Extract the command from the argument list
+  cmnd=${@:3}
   # Connect to private instance through public instance
-  ssh -t -i "$KEY_PATH"  "ubuntu@$public_ip" "./remote.sh '$comamnd'"
+  ssh -i "$KEY_PATH" -t "ubuntu@$public_ip" "./remote.sh '$2 $cmnd'"
 fi
-if [ $? -ne 0 ]; then
-  exit 0
-fi
-#test1
-#test2
-# TODO your solution here
