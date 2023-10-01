@@ -2,7 +2,6 @@
 
 
 # TODO your solution here
-
 #bad usage
 if [ ! $KEY_PATH ]
 then
