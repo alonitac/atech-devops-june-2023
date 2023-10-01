@@ -1,7 +1,4 @@
-#!/bin/bash
+#!/usr/bin/ssh-agent bash
 
-key=$(cat $KEY_PATH)
-
-
-
-ssh -t -i $key ubunte@$1 "$key; ssh -i key ubuntu@$2 \$key"
+ssh-add $KEY_PATH
+ssh -A -t ubuntu@$1  "ssh ubuntu@$2"
