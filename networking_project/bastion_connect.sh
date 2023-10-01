@@ -12,9 +12,10 @@ if [ -z "$1" ]; then
 fi
 
 public_ip=$1
+private_ip=$2
 comamnd=$3
 # Check if private instance IP is provided
-if [ -z "$2" ]; then
+if [ -z "$private_ip" ]; then
   # Connect to public instance
   ssh -i "$KEY_PATH" "ubuntu@$public_ip"
 else
