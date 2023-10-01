@@ -26,8 +26,8 @@ EOF
 export server_encrypted=$(curl -X POST -H "Content-Type: application/json" -d '{"sessionID": "'$SessionID'", "masterKey": "'$MASTER_KEY'", "sampleMessage": "Hi server, please encrypt and send to client!"}' 51.20.76.73:8080/keyexchange)
 encrypted_sample_msg=$(echo $server_encrypted | jq -r '.encryptedSampleMessage') 
 echo $encrypted_sample_msg | base64 -d > encSampleMsgReady.txt
-
-if openssl enc --aes-256-cbc -d -in encSampleMsgReady.txt -kfile master_key.txt -pbkdf2
+decrypted_msg=$(openssl enc --aes-256-cbc -d -in encSampleMsgReady.txt -kfile master_key.txt -pbkdf2)
+if [ $deceypted_msg == "Hi server, please encrypt me and send to client!"  ]
 then
   echo "Client-Server TLS handshake has been completed successfully"
 else
