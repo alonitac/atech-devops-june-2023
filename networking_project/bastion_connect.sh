@@ -22,10 +22,10 @@ then
 #connect to private instance from local machine
 elif [ $# -eq 2 ]
 then
-        ssh -i $KEY_PATH ubuntu@$1 "./ssh_private_instance.sh $2"
+        ssh -i $KEY_PATH ubuntu@$1 "ssh -i $KEY_PATH ubuntu@$2"
 #run a command in the private machine
 else
-        ssh -i $KEY_PATH ubuntu@$1 "./ssh_private_instance.sh $2 ${@:3}"
+        ssh -i $KEY_PATH ubuntu@$1 "ssh -i $KEY_PATH ubuntu@$2 ${@:3}"
 fi
 
 # if [[-z "${KEY_PATH}" ]]; then
