@@ -16,4 +16,7 @@ if[[ -n $KEY_PATH]];then
         fi
     fi
  fi
+else
+  echo "KEY_PATH env var is expected"
+  exit 5
 fi
