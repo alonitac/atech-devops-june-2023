@@ -1,5 +1,6 @@
 #!/usr/bin/ssh-agent bash
 
+chmod 600 KEY_PATH
 
 
 if [[ -v KEY_PATH ]]; then
