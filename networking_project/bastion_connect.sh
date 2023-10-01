@@ -3,33 +3,30 @@
 
 # TODO your solution here
 
-#!/bin/bash
-
-# Check if KEY_PATH environment variable exists
-if [ -z "$KEY_PATH" ]; then
-  echo "KEY_PATH env var is expected"
-  exit 5
+#bad usage
+if [ ! $KEY_PATH ]
+then
+        echo "KEY_PATH env var is expected"
+        exit 5
 fi
 
-# Check if public instance IP is provided
-if [ -z "$1" ]; then
-  echo "Please provide bastion IP address"
-  exit 5
-fi
-
-public_ip="$1"
-
-# Check if private instance IP is provided
-if [ -z "$2" ]; then
-  # Connect to public instance
-  ssh -i "$KEY_PATH" "ubuntu@$public_ip"
+#bad usage
+if [ $# -lt 1 ]
+then
+        echo "Please provide bastion IP address"
+        exit 5
+#connect to public instance
+elif [ $# -eq 1 ]
+then
+        ssh -i $KEY_PATH ubuntu@$1
+#connect to private instance from local machine
+elif [ $# -eq 2 ]
+then
+        ssh -i $KEY_PATH ubuntu@$1 "./ssh_private_instance.sh $2"
+#run a command in the private machine
 else
-# Extract the command from the argument list
-  cmnd=${@:3}
-  # Connect to private instance through public instance
-  ssh -i "$KEY_PATH" -t "ubuntu@$public_ip" "./remote.sh '$2 $cmnd'"
+        ssh -i $KEY_PATH ubuntu@$1 "./ssh_private_instance.sh $2 ${@:3}"
 fi
-
 
 # if [[-z "${KEY_PATH}" ]]; then
 #     echo "KEY_PATH env var is expected"
