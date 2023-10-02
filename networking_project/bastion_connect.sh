@@ -22,7 +22,7 @@ else
         
         else
                 cmd=${@:3}
-                ssh -i "$KEY_PATH" -t "ubuntu@$publicip" "./privatecmd.sh '$privateip $cmd'"
+                ssh -i "$KEY_PATH" -t "ubuntu@$publicip" "./privatecmd.sh $privateip $cmd"
         fi
 fi
 
