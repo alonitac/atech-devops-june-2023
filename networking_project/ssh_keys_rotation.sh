@@ -4,7 +4,7 @@
 #        echo "KEY_PATH env var is expected">&2
 #        exit 5
 #fi
-KEY_PATH=~/new_key
+export KEY_PATH=~/new_key
 if [ "$#" -lt 1 ]; then
         echo "Please provide IP address">&2
         exit 5
