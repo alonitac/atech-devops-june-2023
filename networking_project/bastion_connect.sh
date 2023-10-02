@@ -5,7 +5,7 @@ if [[ -n $KEY_PATH ]]; then
     echo "R"
     exit 5
   else
-    if[[ -z $2 ]]; then
+    if [[ -z $2 ]]; then
       ssh -i $KEY_PATH ubuntu@$1
     else
       if [[ -z $3 ]]; then
