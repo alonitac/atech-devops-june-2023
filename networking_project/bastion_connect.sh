@@ -8,8 +8,8 @@ if [[ -n $KEY_PATH ]]; then
     if [[ -z $2 ]]; then
       ssh -i $KEY_PATH ubuntu@$1
     else
-
-   fi
+    echo "r"
+    fi
   fi
 else
   echo "f"
