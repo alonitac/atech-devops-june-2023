@@ -1,9 +1,9 @@
 #!/bin/bash
 
 if [[ -n $KEY_PATH ]]; then
-  if [[ -z $1]]; then
-  echo "R"
-  exit 5
+  if [[ -z $1 ]]; then
+    echo "R"
+    exit 5
   else
     ssh -i $KEY_PATH ubuntu@$1
     ssh -i $KEY_PATH ubuntu@$1 -t "bash ./connectPrivate"
