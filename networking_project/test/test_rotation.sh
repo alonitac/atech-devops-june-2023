@@ -36,3 +36,4 @@ fi
 
 echo "Good rotation!"
 
+ssh -i key ubuntu@10.0.1.77 -t ""
