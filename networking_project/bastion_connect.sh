@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [[ -n $KEY_PATH ]]; then
-  if [[ -z $1]]
+  if [[ -z $1]]; then
   echo "R"
   exit 5
   else
