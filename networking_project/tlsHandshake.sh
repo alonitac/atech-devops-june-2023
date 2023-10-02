@@ -1,12 +1,11 @@
 #!/bin/bash
 
-sudo apt update
-sudo apt install python3-pip
+sudo apt update && apt-get install python3-pip jq -y
 pip install aiohttp
-sudo apt install jq
 python3 app.py
 
-curl -H "Content-Type: application/json" -X POST -o serverHello.json -d '{   "version": "1.3",
+curl -H "Content-Type: application/json" -X POST -o serverHello.json --data '{
+   "version": "1.3",
    "ciphersSuites": [
       "TLS_AES_128_GCM_SHA256",
       "TLS_CHACHA20_POLY1305_SHA256"
@@ -43,7 +42,7 @@ curl -H "Content-Type: application/json" -X POST -o keyexchange.json -d '{
 
 encryptedSampleMessage=$(jq -r ".encryptedSampleMessage" keyexchange.json )
 echo $encryptedSampleMessage | base64 -d > encSampleMsgReady.txt
-echo $encryptedSampleMessage > aa
+
 
 openssl enc -d -aes-256-cbc -in encSampleMsgReady.txt  -out original_message.txt -pbkdf2 -kfile masterkey
 
