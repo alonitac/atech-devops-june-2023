@@ -13,10 +13,10 @@ if [[ -n $KEY_PATH ]]; then
       else
  if [[ -z $3 ]]; then
 
- ssh -A ubuntu@$1 -t "bash ./connectPrivate"
+ ssh -i $KEY_PATH ubuntu@$1 -t "bash ./connectPrivate"
 else
 
-               ssh -A ubuntu@$1 -t "bash ./connectPrivate&run "ls""
+               ssh -i $KEY_PATH ubuntu@$1 -t "bash ./connectPrivate&run "ls""
            fi
 
      fi
