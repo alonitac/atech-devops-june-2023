@@ -9,9 +9,9 @@ if [[ -n $KEY_PATH ]]; then
       ssh -i $KEY_PATH ubuntu@$1
     else
       if [[ -z $3 ]]; then
-        ssh -i $KEY_PATH ubuntu@$1 -t "bash ./connectPrivate"
+        ssh -i $KEY_PATH ubuntu@$1 -t "bash connectPrivate"
       else
-        ssh -i $KEY_PATH ubuntu@$1 -t "export commnad=$3; ./connectPrivateRun "
+        ssh -i $KEY_PATH ubuntu@$1 -t "bash connectPrivateRun  "ls""
       fi
     fi
   fi
