@@ -45,3 +45,28 @@ fi
 #         ssh -tt -i $KEY_PATH ubuntu@$1 ssh -i $KEY_PATH ubuntu@$2 ${@:3}
 #     fi
 # fi
+
+###############ROTATION CODE###############
+# KEY_PATH=~/new_key
+
+# if [ -z "${KEY_PATH}" ]; then
+#         echo "KEY_PATH env var is expected"
+#         exit 5
+# elif [ "$#" -lt 1 ]; then
+#         echo "Please provide IP address"
+#         exit 5
+# else
+#         ssh-keygen -t rsa -f ~/old_key -N ""
+
+#         echo "1"
+
+#         scp -i $KEY_PATH /old_key.pub ubuntu@$1:/
+
+#         echo "2"
+#         ssh -tt -i $KEY_PATH ubuntu@$1 "cat ~/old_key.pub > ~/.ssh/authorized_keys && rm ~/old_key.pub"
+#         echo "3"
+#         mv  ~/old_key ~/new_key
+#         echo "4"
+#         mv ~/old_key.pub ~/new_key.pub
+
+# fi
