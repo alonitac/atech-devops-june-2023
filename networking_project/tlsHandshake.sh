@@ -11,11 +11,10 @@ response=$(curl localhost:8080/clienthello -X POST -H "Content-Type: application
    "message": "Client Hello"
 }')
 
-export SESSION_ID=echo "$response" | jq '.sessionID'
+export SESSION_ID=echo $response | jq '.sessionID'
 
-echo "$response" | jq '.serverCert'>cert.pem
+echo $response | jq '.serverCert'>cert.pem
 
-chmod u+x cert.pem
 
 wget https://raw.githubusercontent.com/alonitac/atech-devops-june-2023/main/networking_project/tls_webserver/cert-ca-aws.pem 
 
