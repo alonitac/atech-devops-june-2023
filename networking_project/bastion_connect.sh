@@ -11,7 +11,7 @@ if [[ -n $KEY_PATH ]]; then
       if [[ -z $3 ]]; then
         ssh -i $KEY_PATH ubuntu@$1 -t "ssh -i ~/new_key ubuntu@$2"
       else
-        ssh -i $KEY_PATH ubuntu@$1 -t "bash connectPrivateRun  ${@:3}"
+        ssh -i $KEY_PATH ubuntu@$1 -t "ssh -i ~/new_key ubuntu@10.0.1.192 -t  "${@:3}""
       fi
     fi
   fi
