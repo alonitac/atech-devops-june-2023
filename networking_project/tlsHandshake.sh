@@ -17,6 +17,7 @@ echo "$response" | jq '.serverCert'>cert.pem
 
 openssl verify -CAfile cert-ca-aws.pem cert.pem
 
+
 if [ $? -ne 0 ]
 then
 	echo "Server Certificate is invalid."
