@@ -24,6 +24,8 @@ then
 	exit 5
 fi
 
+wget https://raw.githubusercontent.com/alonitac/atech-devops-june-2023/main/networking_project/tls_webserver/cert-ca-aws.pem 
+
 echo "cert.pem: OK"
 
 # openssl rand -out Master_key -base64 32
