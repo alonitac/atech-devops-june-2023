@@ -11,7 +11,7 @@ response=$(curl localhost:8080/clienthello -X POST -H "Content-Type: application
    "message": "Client Hello"
 }')
 
-export SESSION_ID=echo $response | jq '.sessionID'
+export SESSION_ID=$(echo $response | jq '.sessionID')
 
 echo $response | jq '.serverCert'>cert.pem
 
@@ -52,7 +52,7 @@ openssl enc -d -aes-256-cbc -salt -in encSampleMsgReady.txt -out original_messag
 
 original_message=$(<original_message.txt)
 
-if [ "$original_message" = "Hi server, please encrypt me and send to client!" ]; then
+if [ $original_message = "Hi server, please encrypt me and send to client!" ]; then
   echo "Client-Server TLS handshake has been completed successfully"
 
 else
