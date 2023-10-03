@@ -19,10 +19,10 @@ wget -O cert-ca-aws.pem https://raw.githubusercontent.com/alonitac/atech-devops-
 isValid=$(openssl verify -CAfile cert-ca-aws.pem cert.pem)
 
 if [[ "$isValid" == "cert.pem: OK" ]];then
-echo $isValid
-else
+ echo $isValid
+ else
 echo "Server Certificate is invalid"
-exit 5
+ exit 5
 fi
 
 openssl rand -base64 32 > masterkey
