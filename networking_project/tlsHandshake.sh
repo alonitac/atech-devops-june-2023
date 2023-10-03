@@ -44,7 +44,7 @@ encryptedSample=$response2 | jq '.encryptedSampleMessage'
 
 echo $encryptedSample | base64 -d > encSampleMsgReady.txt
 
-openssl enc -d -aes-256-cbc -salt -in encSampleMsgReady.txt -out original_message.txt -pass file:Master_key
+openssl enc -d -aes-256-cbc -salt -in encSampleMsgReady.txt -out original_message.txt -pass file:Master_key.txt
 
 original_message=$(<original_message.txt)
 
