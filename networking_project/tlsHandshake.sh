@@ -46,8 +46,12 @@ openssl enc -d -aes-256-cbc -in encSampleMsgReady.txt -out original_message.txt 
 msgCheck="Hi server, please encrypt me and send to client!"
 orginalMsg=$(cat original_message.txt)
 
-
-if [ $? -ne 0 ] && [[ $msgCheck != $orginalMsg ]]; then
+if [[ $msgCheck != $orginalMsg ]]; then
+  echo "yes"
+else
+  echo "no"
+fi
+if [ $? -ne 0 ]; then
     echo "Server symmetric encryption using the exchanged master-key has failed."
     exit 6
 else
