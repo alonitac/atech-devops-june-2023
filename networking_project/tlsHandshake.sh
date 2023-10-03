@@ -15,6 +15,8 @@ export SESSION_ID=echo "$response" | jq '.sessionID'
 
 echo "$response" | jq '.serverCert'>cert.pem
 
+chmod u+x cert.pem
+
 wget https://raw.githubusercontent.com/alonitac/atech-devops-june-2023/main/networking_project/tls_webserver/cert-ca-aws.pem 
 
 openssl verify -CAfile cert-ca-aws.pem cert.pem
