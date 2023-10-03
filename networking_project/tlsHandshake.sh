@@ -1,8 +1,5 @@
 #!/bin/bash
 
-sudo apt update && apt-get install python3-pip jq -y
-pip install aiohttp
-python3 app.py
 
 curl -H "Content-Type: application/json" -X POST -o serverHello.json --data '{
    "version": "1.3",
@@ -44,15 +41,14 @@ encryptedSampleMessage=$(jq -r ".encryptedSampleMessage" keyexchange.json )
 echo $encryptedSampleMessage | base64 -d > encSampleMsgReady.txt
 
 
-openssl enc -d -aes-256-cbc -in encSampleMsgReady.txt  -out original_message.txt -pbkdf2 -kfile masterkey
+openssl enc -d -aes-256-cbc -in encSampleMsgReady.txt -out original_message.txt -pbkdf2 -kfile masterkey
+
+echo "Hi server, please encrypt me and send to client!" > msgCheck.txt
 
 
-if [ $? -ne 0 ]; then
+if [ $? -ne 0 ] && [[ cmp -s msgCheck.txt original_message.txt ]]; then
     echo "Server symmetric encryption using the exchanged master-key has failed."
     exit 6
     else
       echo "Client-Server TLS handshake has been completed successfully"
 fi
-
-
-
