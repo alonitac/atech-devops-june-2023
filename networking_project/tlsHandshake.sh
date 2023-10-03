@@ -44,7 +44,7 @@ openssl enc -d -aes-256-cbc -salt -in encSampleMsgReady.txt -out original_messag
 
 original_message=$(<original_message.txt)
 
-if [  "$original_message" = "Hi server, please encrypt me and send to client!" ]; then
+if [ "$original_message" = "Hi server, please encrypt me and send to client!" ]; then
   echo "Client-Server TLS handshake has been completed successfully"
 
 else
