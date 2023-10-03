@@ -2,6 +2,7 @@
 
 # TODO Your solution here
 
+
 response=$(curl localhost:8080/clienthello -X POST -H "Content-Type: application/json" -d'{
    "version": "1.3",
    "ciphersSuites": [
