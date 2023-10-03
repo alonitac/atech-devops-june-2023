@@ -47,9 +47,9 @@ msgCheck="Hi server, please encrypt me and send to client!"
 orginalMsg=$(cat original_message.txt)
 
 
-if [ $? -ne 0 ] && [[ $msgCheck == orginalMsg ]]; then
+if [ $? -ne 0 ] && [[ $msgCheck != $orginalMsg ]]; then
     echo "Server symmetric encryption using the exchanged master-key has failed."
     exit 6
-    else
+else
       echo "Client-Server TLS handshake has been completed successfully"
 fi
