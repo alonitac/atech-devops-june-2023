@@ -47,6 +47,8 @@ msgCheck="Hi server, please encrypt me and send to client!"
 orginalMsg=$(cat original_message.txt)
 
 if [[ $msgCheck != $orginalMsg ]]; then
+  echo $msgCheck
+  echo $original_message
   echo "yes"
 else
   echo "no"
