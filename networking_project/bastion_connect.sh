@@ -2,7 +2,7 @@
 
 if [[ -n $KEY_PATH ]]; then
   if [[ -z $1 ]]; then
-    echo "R"
+    echo "Please provide bastion IP address"
     exit 5
   else
     if [[ -z $2 ]]; then
@@ -17,6 +17,6 @@ if [[ -n $KEY_PATH ]]; then
   fi
 
 else
-  echo "f"
+  echo "KEY_PATH env var is expected"
   exit 5
 fi
