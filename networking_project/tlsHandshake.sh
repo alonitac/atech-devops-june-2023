@@ -43,10 +43,11 @@ echo $encryptedSampleMessage | base64 -d > encSampleMsgReady.txt
 
 openssl enc -d -aes-256-cbc -in encSampleMsgReady.txt -out original_message.txt -pbkdf2 -kfile masterkey
 
-echo "Hi server, please encrypt me and send to client!" > msgCheck.txt
+msgCheck="Hi server, please encrypt me and send to client!"
+orginalMsg=$(cat original_message.txt)
 
 
-if [ $? -ne 0 ] && [[ cmp -s msgCheck.txt original_message.txt ]]; then
+if [ $? -ne 0 ] && [[ $msgCheck == orginalMsg ]]; then
     echo "Server symmetric encryption using the exchanged master-key has failed."
     exit 6
     else
