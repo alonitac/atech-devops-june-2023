@@ -2,7 +2,7 @@
 
 # TODO Your solution here
 
-response=$(curl localhost:8080/clienthello -X POST -d '{
+response=$(curl localhost:8080/clienthello -X POST -H "Content-Type: application/json" -d'{
    "version": "1.3",
    "ciphersSuites": [
       "TLS_AES_128_GCM_SHA256",
@@ -29,7 +29,7 @@ openssl rand -out Master_key -base64 32
 
 MASTER_KEY=$(openssl smime -encrypt -aes-256-cbc -in Master_key -outform DER cert.pem | base64 -w 0)
 
-response2=$(curl localhost:8080/keyexchange -X POST -d'
+response2=$(curl localhost:8080/keyexchange -X POST -H "Content-Type: application/json" -d'
 {
     "sessionID": "'$SESSION_ID'",
     "masterKey": "'$MASTER_KEY'",
