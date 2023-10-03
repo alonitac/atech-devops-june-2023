@@ -25,9 +25,13 @@ fi
 
 echo "cert.pem: OK"
 
-openssl rand -out Master_key -base64 32
+# openssl rand -out Master_key -base64 32
 
-MASTER_KEY=$(openssl smime -encrypt -aes-256-cbc -in Master_key -outform DER cert.pem | base64 -w 0)
+openssl rand -base64 32
+openssl rand -base64 32 > Master_key.txt
+
+
+MASTER_KEY=$(openssl smime -encrypt -aes-256-cbc -in Master_key.txt -outform DER cert.pem | base64 -w 0)
 
 response2=$(curl localhost:8080/keyexchange -X POST -H "Content-Type: application/json" -d'
 {
