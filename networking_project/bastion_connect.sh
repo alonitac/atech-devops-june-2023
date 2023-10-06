@@ -1,5 +1,4 @@
 #!/bin/bash
-
 #check if the variable KEY_PATH exists
 if [ -z "${KEY_PATH}" ]; then
   echo "KEY_PATH env variable is expected"
