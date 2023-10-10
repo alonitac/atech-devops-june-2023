@@ -13,6 +13,7 @@ if [ "$?"-ne 0 ]; then
   exit 5
 fi
 
+
 # generate the master key
 openssl rand -base64 32 > master_key
 
