@@ -27,7 +27,6 @@ msg=$(echo "$responseKey" | jq -r '.encryptedSampleMessage')
 echo "$msg" | base64 -d > enc_massage
 
 
-
 # Decrypt
 decrypted=$(openssl enc -aes-256-cbc -d -in enc_message -kfile master_key -pbkdf2 )
 
