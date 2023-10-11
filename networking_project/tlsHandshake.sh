@@ -24,15 +24,15 @@ responseKey=$(curl -X POST -H "Content-Type: application/json" -d '{"sessionID":
 
 msg=$(echo "$responseKey" | jq -r '.encryptedSampleMessage')
 
-echo "$msg" | base64 -d > enc_massage
+echo "$msg" | base64 -d > enc_massage.txt
 
 
 # Decrypt
-decrypted=$(openssl enc -aes-256-cbc -d -in enc_message -kfile master_key -pbkdf2 )
+decrypted=$(openssl enc -aes-256-cbc -d -in enc_message.txt -kfile master_key -pbkdf2 )
 
 ## check
 
-if [ $decrypted == "" || $decrypted == "Server bad message" ]
+if [ "$decrypted" != "Hi server, please encrypt me and send to client!" ]
 then
   echo "Server symmetric encryption using the exchanged master-key has failed."
   exit 6
