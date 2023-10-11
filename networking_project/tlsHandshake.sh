@@ -29,7 +29,7 @@ echo "$msg" | base64 -d > enc_massage
 echo $responseKey | jq -r '.encryptedSampleMessage' | base64 -d > enc_message
 
 # Decrypt
-decrypted=$(openssl enc -aes-256-cbc -d -in encSample.txt -pbkdf2 -kfile master_key)
+decrypted=$(openssl enc -aes-256-cbc -d -in enc_message -pbkdf2 -kfile master_key)
 
 ## check
 
