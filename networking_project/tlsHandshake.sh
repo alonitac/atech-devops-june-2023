@@ -26,14 +26,14 @@ msg=$(echo "$responseKey" | jq -r '.encryptedSampleMessage')
 
 echo "$msg" | base64 -d > enc_massage
 
-echo $responseKey | jq -r '.encryptedSampleMessage' | base64 -d > enc_message
+
 
 # Decrypt
 decrypted=$(openssl enc -aes-256-cbc -d -in enc_message -pbkdf2 -kfile master_key)
 
 ## check
 
-if [ $decrypted=="" || $decrypted=="Server bad message" ]
+if [ $decrypted == "" || $decrypted == "Server bad message" ]
 then
   echo "Server symmetric encryption using the exchanged master-key has failed."
   exit 6
