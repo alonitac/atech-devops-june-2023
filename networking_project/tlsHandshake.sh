@@ -33,7 +33,7 @@ decrypted=$(openssl enc -aes-256-cbc -d -in encSample.txt -pbkdf2 -kfile master_
 
 ## check
 
-if [ $decrypted=="" || $decrypted=="Server bad message"]
+if [ $decrypted=="" || $decrypted=="Server bad message" ]
 then
   echo "Server symmetric encryption using the exchanged master-key has failed."
   exit 6
