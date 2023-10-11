@@ -13,19 +13,16 @@ if [ "$?" -ne 0 ]; then
   exit 5
 fi
 
-
 # generate the master key
 openssl rand -base64 32 > master_key
 
 masterKey=$(openssl smime -encrypt -aes-256-cbc -in master_key -outform DER cert.pem | base64 -w 0)
-
 
 responseKey=$(curl -X POST -H "Content-Type: application/json" -d '{"sessionID": "'$SESSION_ID'","masterKey": "'$masterKey'","sampleMessage": "Hi server, please encrypt me and send to client!"}' 3.145.80.154:8080/keyexchange)
 
 msg=$(echo "$responseKey" | jq -r '.encryptedSampleMessage')
 
 echo "$msg" | base64 -d > enc_massage.txt
-
 
 # Decrypt
 decrypted=$(openssl enc -aes-256-cbc -d -in enc_message.txt -kfile master_key -pbkdf2 )
