@@ -15,7 +15,7 @@ SESSION_ID=$(echo "$SERVER_RESPONSE" | jq -r '.sessionID')
 SERVER_CERT=$(echo "$SERVER_RESPONSE" | jq -r '.serverCert')
 
 # Step 2 - Server Certificate Verification
-#wget https://raw.githubusercontent.com/alonitac/atech-devops-june-2023/main/networking_project/tls_webserver/cert-ca-aws.pem
+wget https://raw.githubusercontent.com/alonitac/atech-devops-june-2023/main/networking_project/tls_webserver/cert-ca-aws.pem
 openssl verify -CAfile cert-ca-aws.pem <<< "$SERVER_CERT"
 VERIFY_RESULT=$?
 echo "$SERVER_CERT" > server_cert.pem
