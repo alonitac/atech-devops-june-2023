@@ -1,16 +1,143 @@
 Local DNS Server IP
 -------------------
-<ip-here>
-
-
+127.0.0.53
 
 Default gateway IP
 -------------------
-<ip-here>
+10.0.0.1
 
 
 
 DHCP IP allocation sys-logs
 -------------------
-<logs-here>
+Oct  8 11:34:14 ip-10-0-0-202 dhclient[300]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0x34c5e736)
+Oct  8 14:49:18 ip-10-0-0-202 dhclient[300]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0x9f25884f)
+Oct  8 20:15:02 ip-10-0-0-202 dhclient[308]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0x84311366)
+Oct  8 20:38:44 ip-10-0-0-202 dhclient[300]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0x12967c06)
+Oct  8 21:15:00 ip-10-0-0-202 dhclient[297]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0x9295727)
+Oct  9 13:25:43 ip-10-0-0-202 dhclient[299]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0x3501c67e)
+Oct  9 13:37:17 ip-10-0-0-202 dhclient[298]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0x11a7297f)
+Oct 10 20:20:52 ip-10-0-0-202 dhclient[300]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0xd7b2b770)
+Oct 10 20:38:36 ip-10-0-0-202 dhclient[309]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0xd9cdf335)
+Oct 10 21:08:08 ip-10-0-0-202 dhclient[299]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0xcbe5ab71)
+Oct 10 21:27:03 ip-10-0-0-202 dhclient[298]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0xfe45dd24)
+Oct 10 21:40:32 ip-10-0-0-202 dhclient[299]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0x5f7c0609)
+Oct 11 13:01:09 ip-10-0-0-202 dhclient[300]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0x8c619d60)
+Oct 11 13:46:22 ip-10-0-0-202 dhclient[300]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0x5e167132)
+Oct 11 21:44:43 ip-10-0-0-202 dhclient[298]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0x4d6e3157)
+Oct 11 22:27:27 ip-10-0-0-202 dhclient[301]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0x200d211)
+Oct 11 23:10:47 ip-10-0-0-202 dhclient[299]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0x22c8505a)
+Oct 11 23:14:50 ip-10-0-0-202 dhclient[299]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0x2f40d265)
+Oct 12 23:10:46 ip-10-0-0-202 dhclient[301]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0x2d29f637)
+Oct 13 11:34:09 ip-10-0-0-202 dhclient[301]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0x1da36343)
+Oct 13 11:51:53 ip-10-0-0-202 dhclient[299]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0x41c9343e)
+Oct 13 13:29:41 ip-10-0-0-202 dhclient[309]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0xc6aeec32)
+Oct 13 14:00:28 ip-10-0-0-202 dhclient[298]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0xd094cc43)
+Oct 13 22:37:55 ip-10-0-0-202 dhclient[300]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0xa13ed52d)
+Oct 14 11:15:37 ip-10-0-0-202 dhclient[298]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0xe6946454)
+Oct 14 12:26:39 ip-10-0-0-202 dhclient[307]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0xe9ac7038)
+Oct 14 13:14:33 ip-10-0-0-202 dhclient[300]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0x78bd3a63)
+Oct 14 15:47:46 ip-10-0-0-202 dhclient[302]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0x29a86e5b)
+Oct 14 16:06:39 ip-10-0-0-202 dhclient[299]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0x46eb1e18)
+Oct 14 17:41:07 ip-10-0-0-202 dhclient[298]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0x630a3010)
+Oct 14 18:21:41 ip-10-0-0-202 dhclient[300]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0xfebffb10)
+Oct 14 21:40:52 ip-10-0-0-202 dhclient[300]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0x5a3f523e)
 
+Oct  8 11:34:14 ip-10-0-0-202 dhclient[300]: DHCPOFFER of 10.0.0.202 from 10.0.0.1
+Oct  8 14:49:18 ip-10-0-0-202 dhclient[300]: DHCPOFFER of 10.0.0.202 from 10.0.0.1
+Oct  8 20:15:02 ip-10-0-0-202 dhclient[308]: DHCPOFFER of 10.0.0.202 from 10.0.0.1
+Oct  8 20:38:44 ip-10-0-0-202 dhclient[300]: DHCPOFFER of 10.0.0.202 from 10.0.0.1
+Oct  8 21:15:00 ip-10-0-0-202 dhclient[297]: DHCPOFFER of 10.0.0.202 from 10.0.0.1
+Oct  9 13:25:43 ip-10-0-0-202 dhclient[299]: DHCPOFFER of 10.0.0.202 from 10.0.0.1
+Oct  9 13:37:17 ip-10-0-0-202 dhclient[298]: DHCPOFFER of 10.0.0.202 from 10.0.0.1
+Oct 10 20:20:52 ip-10-0-0-202 dhclient[300]: DHCPOFFER of 10.0.0.202 from 10.0.0.1
+Oct 10 20:38:36 ip-10-0-0-202 dhclient[309]: DHCPOFFER of 10.0.0.202 from 10.0.0.1
+Oct 10 21:08:08 ip-10-0-0-202 dhclient[299]: DHCPOFFER of 10.0.0.202 from 10.0.0.1
+Oct 10 21:27:03 ip-10-0-0-202 dhclient[298]: DHCPOFFER of 10.0.0.202 from 10.0.0.1
+Oct 10 21:40:32 ip-10-0-0-202 dhclient[299]: DHCPOFFER of 10.0.0.202 from 10.0.0.1
+Oct 11 13:01:09 ip-10-0-0-202 dhclient[300]: DHCPOFFER of 10.0.0.202 from 10.0.0.1
+Oct 11 13:46:22 ip-10-0-0-202 dhclient[300]: DHCPOFFER of 10.0.0.202 from 10.0.0.1
+Oct 11 21:44:43 ip-10-0-0-202 dhclient[298]: DHCPOFFER of 10.0.0.202 from 10.0.0.1
+Oct 11 22:27:27 ip-10-0-0-202 dhclient[301]: DHCPOFFER of 10.0.0.202 from 10.0.0.1
+Oct 11 23:10:47 ip-10-0-0-202 dhclient[299]: DHCPOFFER of 10.0.0.202 from 10.0.0.1
+Oct 11 23:14:50 ip-10-0-0-202 dhclient[299]: DHCPOFFER of 10.0.0.202 from 10.0.0.1
+Oct 12 23:10:46 ip-10-0-0-202 dhclient[301]: DHCPOFFER of 10.0.0.202 from 10.0.0.1
+Oct 13 11:34:09 ip-10-0-0-202 dhclient[301]: DHCPOFFER of 10.0.0.202 from 10.0.0.1
+Oct 13 11:51:53 ip-10-0-0-202 dhclient[299]: DHCPOFFER of 10.0.0.202 from 10.0.0.1
+Oct 13 13:29:41 ip-10-0-0-202 dhclient[309]: DHCPOFFER of 10.0.0.202 from 10.0.0.1
+Oct 13 14:00:28 ip-10-0-0-202 dhclient[298]: DHCPOFFER of 10.0.0.202 from 10.0.0.1
+Oct 13 22:37:55 ip-10-0-0-202 dhclient[300]: DHCPOFFER of 10.0.0.202 from 10.0.0.1
+Oct 14 11:15:37 ip-10-0-0-202 dhclient[298]: DHCPOFFER of 10.0.0.202 from 10.0.0.1
+Oct 14 12:26:39 ip-10-0-0-202 dhclient[307]: DHCPOFFER of 10.0.0.202 from 10.0.0.1
+Oct 14 13:14:33 ip-10-0-0-202 dhclient[300]: DHCPOFFER of 10.0.0.202 from 10.0.0.1
+Oct 14 15:47:46 ip-10-0-0-202 dhclient[302]: DHCPOFFER of 10.0.0.202 from 10.0.0.1
+Oct 14 16:06:39 ip-10-0-0-202 dhclient[299]: DHCPOFFER of 10.0.0.202 from 10.0.0.1
+Oct 14 17:41:07 ip-10-0-0-202 dhclient[298]: DHCPOFFER of 10.0.0.202 from 10.0.0.1
+Oct 14 18:21:41 ip-10-0-0-202 dhclient[300]: DHCPOFFER of 10.0.0.202 from 10.0.0.1
+Oct 14 21:40:52 ip-10-0-0-202 dhclient[300]: DHCPOFFER of 10.0.0.202 from 10.0.0.1
+
+Oct  8 11:34:14 ip-10-0-0-202 dhclient[300]: DHCPREQUEST for 10.0.0.202 on ens5 to 255.255.255.255 port 67 (xid=0x36e7c534)
+Oct  8 14:49:18 ip-10-0-0-202 dhclient[300]: DHCPREQUEST for 10.0.0.202 on ens5 to 255.255.255.255 port 67 (xid=0x4f88259f)
+Oct  8 20:15:02 ip-10-0-0-202 dhclient[308]: DHCPREQUEST for 10.0.0.202 on ens5 to 255.255.255.255 port 67 (xid=0x66133184)
+Oct  8 20:38:44 ip-10-0-0-202 dhclient[300]: DHCPREQUEST for 10.0.0.202 on ens5 to 255.255.255.255 port 67 (xid=0x67c9612)
+Oct  8 21:15:00 ip-10-0-0-202 dhclient[297]: DHCPREQUEST for 10.0.0.202 on ens5 to 255.255.255.255 port 67 (xid=0x27572909)
+Oct  9 13:25:43 ip-10-0-0-202 dhclient[299]: DHCPREQUEST for 10.0.0.202 on ens5 to 255.255.255.255 port 67 (xid=0x7ec60135)
+Oct  9 13:37:17 ip-10-0-0-202 dhclient[298]: DHCPREQUEST for 10.0.0.202 on ens5 to 255.255.255.255 port 67 (xid=0x7f29a711)
+Oct 10 20:20:52 ip-10-0-0-202 dhclient[300]: DHCPREQUEST for 10.0.0.202 on ens5 to 255.255.255.255 port 67 (xid=0x70b7b2d7)
+Oct 10 20:38:36 ip-10-0-0-202 dhclient[309]: DHCPREQUEST for 10.0.0.202 on ens5 to 255.255.255.255 port 67 (xid=0x35f3cdd9)
+Oct 10 21:08:08 ip-10-0-0-202 dhclient[299]: DHCPREQUEST for 10.0.0.202 on ens5 to 255.255.255.255 port 67 (xid=0x71abe5cb)
+Oct 10 21:27:03 ip-10-0-0-202 dhclient[298]: DHCPREQUEST for 10.0.0.202 on ens5 to 255.255.255.255 port 67 (xid=0x24dd45fe)
+Oct 10 21:40:32 ip-10-0-0-202 dhclient[299]: DHCPREQUEST for 10.0.0.202 on ens5 to 255.255.255.255 port 67 (xid=0x9067c5f)
+Oct 11 13:01:09 ip-10-0-0-202 dhclient[300]: DHCPREQUEST for 10.0.0.202 on ens5 to 255.255.255.255 port 67 (xid=0x609d618c)
+Oct 11 13:46:22 ip-10-0-0-202 dhclient[300]: DHCPREQUEST for 10.0.0.202 on ens5 to 255.255.255.255 port 67 (xid=0x3271165e)
+Oct 11 21:44:43 ip-10-0-0-202 dhclient[298]: DHCPREQUEST for 10.0.0.202 on ens5 to 255.255.255.255 port 67 (xid=0x57316e4d)
+Oct 11 22:27:27 ip-10-0-0-202 dhclient[301]: DHCPREQUEST for 10.0.0.202 on ens5 to 255.255.255.255 port 67 (xid=0x11d20002)
+Oct 11 23:10:47 ip-10-0-0-202 dhclient[299]: DHCPREQUEST for 10.0.0.202 on ens5 to 255.255.255.255 port 67 (xid=0x5a50c822)
+Oct 11 23:14:50 ip-10-0-0-202 dhclient[299]: DHCPREQUEST for 10.0.0.202 on ens5 to 255.255.255.255 port 67 (xid=0x65d2402f)
+Oct 12 23:10:46 ip-10-0-0-202 dhclient[301]: DHCPREQUEST for 10.0.0.202 on ens5 to 255.255.255.255 port 67 (xid=0x37f6292d)
+Oct 13 11:34:09 ip-10-0-0-202 dhclient[301]: DHCPREQUEST for 10.0.0.202 on ens5 to 255.255.255.255 port 67 (xid=0x4363a31d)
+Oct 13 11:51:53 ip-10-0-0-202 dhclient[299]: DHCPREQUEST for 10.0.0.202 on ens5 to 255.255.255.255 port 67 (xid=0x3e34c941)
+Oct 13 13:29:41 ip-10-0-0-202 dhclient[309]: DHCPREQUEST for 10.0.0.202 on ens5 to 255.255.255.255 port 67 (xid=0x32ecaec6)
+Oct 13 14:00:28 ip-10-0-0-202 dhclient[298]: DHCPREQUEST for 10.0.0.202 on ens5 to 255.255.255.255 port 67 (xid=0x43cc94d0)
+Oct 13 22:37:55 ip-10-0-0-202 dhclient[300]: DHCPREQUEST for 10.0.0.202 on ens5 to 255.255.255.255 port 67 (xid=0x2dd53ea1)
+Oct 14 11:15:37 ip-10-0-0-202 dhclient[298]: DHCPREQUEST for 10.0.0.202 on ens5 to 255.255.255.255 port 67 (xid=0x546494e6)
+Oct 14 12:26:39 ip-10-0-0-202 dhclient[307]: DHCPREQUEST for 10.0.0.202 on ens5 to 255.255.255.255 port 67 (xid=0x3870ace9)
+Oct 14 13:14:33 ip-10-0-0-202 dhclient[300]: DHCPREQUEST for 10.0.0.202 on ens5 to 255.255.255.255 port 67 (xid=0x633abd78)
+Oct 14 15:47:46 ip-10-0-0-202 dhclient[302]: DHCPREQUEST for 10.0.0.202 on ens5 to 255.255.255.255 port 67 (xid=0x5b6ea829)
+Oct 14 16:06:39 ip-10-0-0-202 dhclient[299]: DHCPREQUEST for 10.0.0.202 on ens5 to 255.255.255.255 port 67 (xid=0x181eeb46)
+Oct 14 17:41:07 ip-10-0-0-202 dhclient[298]: DHCPREQUEST for 10.0.0.202 on ens5 to 255.255.255.255 port 67 (xid=0x10300a63)
+Oct 14 18:21:41 ip-10-0-0-202 dhclient[300]: DHCPREQUEST for 10.0.0.202 on ens5 to 255.255.255.255 port 67 (xid=0x10fbbffe)
+Oct 14 21:40:52 ip-10-0-0-202 dhclient[300]: DHCPREQUEST for 10.0.0.202 on ens5 to 255.255.255.255 port 67 (xid=0x3e523f5a)
+
+Oct  8 11:34:14 ip-10-0-0-202 dhclient[300]: DHCPACK of 10.0.0.202 from 10.0.0.1 (xid=0x34c5e736)
+Oct  8 14:49:18 ip-10-0-0-202 dhclient[300]: DHCPACK of 10.0.0.202 from 10.0.0.1 (xid=0x9f25884f)
+Oct  8 20:15:02 ip-10-0-0-202 dhclient[308]: DHCPACK of 10.0.0.202 from 10.0.0.1 (xid=0x84311366)
+Oct  8 20:38:44 ip-10-0-0-202 dhclient[300]: DHCPACK of 10.0.0.202 from 10.0.0.1 (xid=0x12967c06)
+Oct  8 21:15:00 ip-10-0-0-202 dhclient[297]: DHCPACK of 10.0.0.202 from 10.0.0.1 (xid=0x9295727)
+Oct  9 13:25:43 ip-10-0-0-202 dhclient[299]: DHCPACK of 10.0.0.202 from 10.0.0.1 (xid=0x3501c67e)
+Oct  9 13:37:17 ip-10-0-0-202 dhclient[298]: DHCPACK of 10.0.0.202 from 10.0.0.1 (xid=0x11a7297f)
+Oct 10 20:20:52 ip-10-0-0-202 dhclient[300]: DHCPACK of 10.0.0.202 from 10.0.0.1 (xid=0xd7b2b770)
+Oct 10 20:38:36 ip-10-0-0-202 dhclient[309]: DHCPACK of 10.0.0.202 from 10.0.0.1 (xid=0xd9cdf335)
+Oct 10 21:08:08 ip-10-0-0-202 dhclient[299]: DHCPACK of 10.0.0.202 from 10.0.0.1 (xid=0xcbe5ab71)
+Oct 10 21:27:03 ip-10-0-0-202 dhclient[298]: DHCPACK of 10.0.0.202 from 10.0.0.1 (xid=0xfe45dd24)
+Oct 10 21:40:32 ip-10-0-0-202 dhclient[299]: DHCPACK of 10.0.0.202 from 10.0.0.1 (xid=0x5f7c0609)
+Oct 11 13:01:09 ip-10-0-0-202 dhclient[300]: DHCPACK of 10.0.0.202 from 10.0.0.1 (xid=0x8c619d60)
+Oct 11 13:46:22 ip-10-0-0-202 dhclient[300]: DHCPACK of 10.0.0.202 from 10.0.0.1 (xid=0x5e167132)
+Oct 11 21:44:43 ip-10-0-0-202 dhclient[298]: DHCPACK of 10.0.0.202 from 10.0.0.1 (xid=0x4d6e3157)
+Oct 11 22:27:27 ip-10-0-0-202 dhclient[301]: DHCPACK of 10.0.0.202 from 10.0.0.1 (xid=0x200d211)
+Oct 11 23:10:47 ip-10-0-0-202 dhclient[299]: DHCPACK of 10.0.0.202 from 10.0.0.1 (xid=0x22c8505a)
+Oct 11 23:14:50 ip-10-0-0-202 dhclient[299]: DHCPACK of 10.0.0.202 from 10.0.0.1 (xid=0x2f40d265)
+Oct 12 23:10:46 ip-10-0-0-202 dhclient[301]: DHCPACK of 10.0.0.202 from 10.0.0.1 (xid=0x2d29f637)
+Oct 13 11:34:09 ip-10-0-0-202 dhclient[301]: DHCPACK of 10.0.0.202 from 10.0.0.1 (xid=0x1da36343)
+Oct 13 11:51:53 ip-10-0-0-202 dhclient[299]: DHCPACK of 10.0.0.202 from 10.0.0.1 (xid=0x41c9343e)
+Oct 13 13:29:41 ip-10-0-0-202 dhclient[309]: DHCPACK of 10.0.0.202 from 10.0.0.1 (xid=0xc6aeec32)
+Oct 13 14:00:28 ip-10-0-0-202 dhclient[298]: DHCPACK of 10.0.0.202 from 10.0.0.1 (xid=0xd094cc43)
+Oct 13 22:37:55 ip-10-0-0-202 dhclient[300]: DHCPACK of 10.0.0.202 from 10.0.0.1 (xid=0xa13ed52d)
+Oct 14 11:15:37 ip-10-0-0-202 dhclient[298]: DHCPACK of 10.0.0.202 from 10.0.0.1 (xid=0xe6946454)
+Oct 14 12:26:39 ip-10-0-0-202 dhclient[307]: DHCPACK of 10.0.0.202 from 10.0.0.1 (xid=0xe9ac7038)
+Oct 14 13:14:33 ip-10-0-0-202 dhclient[300]: DHCPACK of 10.0.0.202 from 10.0.0.1 (xid=0x78bd3a63)
+Oct 14 15:47:46 ip-10-0-0-202 dhclient[302]: DHCPACK of 10.0.0.202 from 10.0.0.1 (xid=0x29a86e5b)
+Oct 14 16:06:39 ip-10-0-0-202 dhclient[299]: DHCPACK of 10.0.0.202 from 10.0.0.1 (xid=0x46eb1e18)
+Oct 14 17:41:07 ip-10-0-0-202 dhclient[298]: DHCPACK of 10.0.0.202 from 10.0.0.1 (xid=0x630a3010)
+Oct 14 18:21:41 ip-10-0-0-202 dhclient[300]: DHCPACK of 10.0.0.202 from 10.0.0.1 (xid=0xfebffb10)
+Oct 14 21:40:52 ip-10-0-0-202 dhclient[300]: DHCPACK of 10.0.0.202 from 10.0.0.1 (xid=0x5a3f523e)
