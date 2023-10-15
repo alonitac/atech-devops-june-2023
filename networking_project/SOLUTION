@@ -6,8 +6,6 @@ Default gateway IP
 -------------------
 10.0.0.1
 
-
-
 DHCP IP allocation sys-logs
 -------------------
 Oct  8 11:34:14 ip-10-0-0-202 dhclient[300]: DHCPDISCOVER on ens5 to 255.255.255.255 port 67 interval 3 (xid=0x34c5e736)

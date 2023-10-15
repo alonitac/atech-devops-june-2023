@@ -20,6 +20,7 @@ KEY_FILE="$KEY_PATH"
 BASTION_IP="$1"
 shift
 
+
 # If there's another argument, it's the private instance IP
 if [ $# -gt 0 ]; then
   PRIVATE_IP="$1"
