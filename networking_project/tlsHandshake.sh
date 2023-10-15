@@ -43,8 +43,10 @@ echo ENCRYPTEDSAMPLEMESSAGE | base64 -d > encSampleMsgReady.txt
 MASTER_KEY=$(<master_key.txt)
 DECRYPTED_MESSAGE=$(echo "$ENCRYPTEDSAMPLEMESSAGE" | base64 -d | openssl enc -d -aes-256-cbc -pbkdf2 -k $MASTER_KEY)
 SAMPLE_MESSAGE="Hi server, please encrypt me and send to client!"
-if [ "$DECRYPTED_MESSAGE" != "$SAMPLE_MESSAGE" ]; then
-    echo "Server symmetric encryption using the exchanged master-key has failed."
-    exit 6
+if [ "$DECRYPTED_MESSAGE" == "$SAMPLE_MESSAGE" ]; then
+   echo "Client-Server TLS handshake has been completed successfully"
+
+else
+   echo "Server symmetric encryption using the exchanged master-key has failed."
+   exit 6
 fi
-echo "Client-Server TLS handshake has been completed successfully"
