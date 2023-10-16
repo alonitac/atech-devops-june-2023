@@ -8,7 +8,7 @@ CLIENT_HELLO='{
     ],
    "message": "Client Hello"
 }'
-
+PUBLIC_IP=16.171.115.78
 SERVER_RESPONSE=$(curl -X POST http://$PUBLIC_IP:8080/clienthello -H "Content-Type: application/json" -d "$CLIENT_HELLO")
 echo $SERVER_RESPONSE
 SESSION_ID=$(echo "$SERVER_RESPONSE" | jq -r '.sessionID')
