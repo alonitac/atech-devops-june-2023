@@ -12,14 +12,12 @@ CLIENT_HELLO='{
 SERVER_RESPONSE=$(curl -X POST http://$PUBLIC_IP:8080/clienthello -H "Content-Type: application/json" -d "$CLIENT_HELLO")
 echo $SERVER_RESPONSE
 SESSION_ID=$(echo "$SERVER_RESPONSE" | jq -r '.sessionID')
-SERVER_CERT=$(echo "$SERVER_RESPONSE" | jq -r '.serverCert')
+echo "$SERVER_RESPONSE" | jq -r '.serverCert' > cert.pem
 
 # Step 2 - Server Certificate Verification
 wget https://raw.githubusercontent.com/alonitac/atech-devops-june-2023/main/networking_project/tls_webserver/cert-ca-aws.pem
 openssl verify -CAfile cert-ca-aws.pem cert.pem
 VERIFY_RESULT=$?
-cp cert-ca-aws.pem server_cert.pem
-
 
 if [ $VERIFY_RESULT -ne 0 ]; then
     echo "Server Certificate is invalid."
@@ -29,7 +27,7 @@ fi
 # Step 3 - Generate Master Key
 openssl rand -base64 32 > master_key.txt
 # Step 4 - Encrypt Master Key and Send to Server
-ENCRYPTED_MASTER_KEY=$(openssl smime -encrypt -aes-256-cbc -in master_key.txt -outform DER server_cert.pem | base64 -w 0)
+ENCRYPTED_MASTER_KEY=$(openssl smime -encrypt -aes-256-cbc -in master_key.txt -outform DER cert-ca-aws.pem | base64 -w 0)
 # Step 5 - Send Encrypted Master Key to Server
 ENCRYPTEDMASTER='{
     "sessionID": "'$SESSION_ID'",
