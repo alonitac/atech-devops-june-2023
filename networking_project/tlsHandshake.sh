@@ -18,7 +18,7 @@ SERVER_CERT=$(echo "$SERVER_RESPONSE" | jq -r '.serverCert')
 wget https://raw.githubusercontent.com/alonitac/atech-devops-june-2023/main/networking_project/tls_webserver/cert-ca-aws.pem
 openssl verify -CAfile cert-ca-aws.pem cert.pem
 VERIFY_RESULT=$?
-cp cert.pem server_cert.pem
+cp cert-ca-aws.pem server_cert.pem
 
 
 if [ $VERIFY_RESULT -ne 0 ]; then
