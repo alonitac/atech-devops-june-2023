@@ -39,7 +39,7 @@ ENCRYPTEDMASTER='{
 RESPONSE=$(curl -X POST http://$PUBLIC_IP:8080/keyexchange -H "Content-Type: application/json" -d "$ENCRYPTEDMASTER")
 # Step 6 - Decrypt Sample Message
 ENCRYPTEDSAMPLEMESSAGE=$(echo "$RESPONSE" | jq -r '.encryptedSampleMessage')
-echo ENCRYPTEDSAMPLEMESSAGE | base64 -d > encSampleMsgReady.txt
+echo $ENCRYPTEDSAMPLEMESSAGE | base64 -d > encSampleMsgReady.txt
 MASTER_KEY=$(<master_key.txt)
 DECRYPTED_MESSAGE=$(echo "$ENCRYPTEDSAMPLEMESSAGE" | base64 -d | openssl enc -d -aes-256-cbc -pbkdf2 -k $MASTER_KEY)
 if [ "$DECRYPTED_MESSAGE" == "Hi server, please encrypt me and send to client!" ]; then
