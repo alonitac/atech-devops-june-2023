@@ -13,6 +13,17 @@ sqs_client = boto3.client('sqs', region_name='YOUR_REGION_HERE')
 def index():
     return render_template('index.html')
 
+@app.route('/status')
+def check_status():
+    job_id = request.args.get('job_id')
+
+    # TODO:
+    '''
+     1. Query the DynamoDB table to fetch results
+     2. if results found for the given job_id, return `jsonify(status=200, response=text)`
+     3. else, return `jsonify(status=0)`
+    '''
+
 
 @app.route('/submit', methods=['POST'])
 def submit_youtube_url():
@@ -22,4 +33,4 @@ def submit_youtube_url():
 
 
 if __name__ == '__main__':
-    app.run(port=8080)
+    app.run(port=8080, host='0.0.0.0')
