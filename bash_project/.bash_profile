@@ -1,7 +1,7 @@
 echo "Hello $USER"
 export COURSE_ID="DevOpsBootcampElevation"
-if [ -f ~/.token ];then
-  if [[ "$(stat --format %a ~/.token)" != 600 ]];then
+if [ -e ~/.token ];then
+  if [[ $(stat -c %a "$token") != 600 ]];then
     echo 'Warning: .token file ha too open permissions'
   fi
 fi
