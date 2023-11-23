@@ -20,4 +20,4 @@ fi
 process=$(lsof -i :8080 -t)
 if [ -n "$process" ]; then
     kill "$process"
-f
+fi
