@@ -1,23 +1,34 @@
-echo "Hello $USER"
-export COURSE_ID="DevOpsBootcampElevation"
-if [ -e ~/.token ];then
-  if [[ $(stat -c %a "$token") != 600 ]];then
-    echo 'Warning: .token file ha too open permissions'
-  fi
-fi
-umask 0006
-export  PATH=$PATH:/home/$USER/usercommands
+echo Hello $USER
+export COURSE_ID=DevOpsBootcampElevation
 
-echo "Date: $(date -u +'%Y-%m-%dT%H:%M:%S%z')"
+USER_home_dir="/home/$USER"
+token_permissions=$(stat -c "%a" $USER_home_dir/.token 2> /dev/null)
+if [ $token_permissions != 600 ]; then
+    echo "Warning: .token file has too open permissions"
+fi
+
+
+umask 0006
+
+
+export PATH=$PATH:$HOME/usercommands
+
+
+echo "The current date is: $(date -u +"%Y-%m-%dT%H:%M:%S%z")"
+
 
 alias ltxt='ls *.txt'
-if [[ ! -d "~/tmp" ]]; then
-  mkdir ~/tmp
+
+
+tmp_dir="$HOME/tmp"
+if [[ -d "$tmp_dir" ]]; then
+    rm -rf "$tmp_dir"/*
 else
-  rm -rf ~/tmp/*
+    mkdir "$tmp_dir"
 fi
 
-process=$(lsof -i :8080 -t)
-if [ -n "$process" ]; then
-    kill "$process"
+process_id=$(lsof -t -i:8080)
+if [[ -n "$process_id" ]]; then
+    kill "$process_id"
 fi
+
