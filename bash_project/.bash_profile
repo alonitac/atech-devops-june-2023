@@ -2,8 +2,9 @@ echo Hello $USER
 export COURSE_ID=DevOpsBootcampElevation
 
 USER_home_dir="/home/$USER"
-token_permissions=$(stat -c "%a" $USER_home_dir/.token 2> /dev/null)
-if [ $token_permissions != 600 ]; then
+
+permission=$(stat -c "%a" $USER_home_dir/.token 2> /dev/null)
+if [ $permission != 600 ]; then
     echo "Warning: .token file has too open permissions"
 fi
 
@@ -13,8 +14,8 @@ umask 0006
 
 export PATH=$PATH:$HOME/usercommands
 
-
-echo "The current date is: $(date -u +"%Y-%m-%dT%H:%M:%S%z")"
+current_date=`date -u +"%Y-%m-%dT%H:%M:%S%z`
+echo "The current date is: $current_date"
 
 
 alias ltxt='ls *.txt'
