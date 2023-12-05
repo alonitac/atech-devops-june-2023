@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  mongo:
+    image: mongo:4.4
+    volumes:
+      - mongoVol:/data/db
+  flask-app:
+    build:
+      context: flask-app
+    depends_on:
+      - mongo
+  nginx:
+    image: nginx:1.25.2
+    volumes:
+      - ${PWD}/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "8080:80"
+    depends_on:
+      - flask-app
+volumes:
+  mongoVol: {}

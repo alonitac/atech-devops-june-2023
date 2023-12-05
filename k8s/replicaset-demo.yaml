@@ -1,0 +1,21 @@
+# k8s/replicaset-demo.yaml 
+
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: emailservice-replicaset-demo
+  labels:
+    app: emailservice-demo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: emailservice-demo
+  template:
+    metadata:
+        labels:
+          app: emailservice-demo
+    spec:
+      containers:
+      - name: server
+        image: gcr.io/google-samples/microservices-demo/emailservice:v0.7.0

@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: productcatalogservice
+spec:
+  selector:
+    matchLabels:
+      app: productcatalogservice
+  template:
+    metadata:
+      labels:
+        app: productcatalogservice
+    spec:
+      terminationGracePeriodSeconds: 5
+      containers:
+      - name: server
+        image: # TODO
+        ports:
+        - containerPort: 3550
+        env:
+        - name: MONGODB_URI
+          # TODO change <MONGO_PRIMARY_DNS> bellow
+          value: mongodb://<MONGO_PRIMARY_DNS>:27017/?replicaSet=myReplicaSet
+        - name: MONGODB_PRODUCTS_DB_NAME
+          value: # TODO products db name here
+        - name: MONGODB_PRODUCTS_COLLECTION_NAME
+          value: # TODO products collection name here
+        - name: MONGODB_URI
+          value: mongodb://<MONGO_PRIMARY_DNS>:27017/?replicaSet=myReplicaSet
+        - name: PORT
+          value: "3550"
+        - name: DISABLE_PROFILER
+          value: "1"
+        readinessProbe:
+          grpc:
+            port: 3550
+        livenessProbe:
+          grpc:
+            port: 3550
+        resources:
+          requests:
+            cpu: 100m
+            memory: 64Mi
+          limits:
+            cpu: 200m
+            memory: 128Mi

@@ -1,0 +1,52 @@
+# k8s/readiness-demo.yaml
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: frontend-pod
+  labels:
+    app: frontend-demo
+spec:
+  containers:
+  - name: server
+    image: gcr.io/google-samples/microservices-demo/frontend:v0.8.0
+#    command: ["sh", "-c"]
+#    args: ["timeout 60s /src/server; sleep 6000"]
+    ports:
+      - containerPort: 8080
+    env:
+      - name: PORT
+        value: "8080"
+      - name: PRODUCT_CATALOG_SERVICE_ADDR
+        value: "productcatalogservice:3550"
+      - name: CURRENCY_SERVICE_ADDR
+        value: "currencyservice:7000"
+      - name: CART_SERVICE_ADDR
+        value: "cartservice:7070"
+      - name: RECOMMENDATION_SERVICE_ADDR
+        value: "recommendationservice:8080"
+      - name: SHIPPING_SERVICE_ADDR
+        value: "shippingservice:50051"
+      - name: CHECKOUT_SERVICE_ADDR
+        value: "checkoutservice:5050"
+      - name: AD_SERVICE_ADDR
+        value: "adservice:9555"
+      - name: ENABLE_PROFILER
+        value: "0"
+    resources:
+      requests:
+        cpu: 50m
+        memory: 5Mi
+      limits:
+        cpu: 100m
+        memory: 128Mi
+    livenessProbe:
+      initialDelaySeconds: 10
+      httpGet:
+        path: "/_healthz"
+        port: 8080
+    readinessProbe:
+      initialDelaySeconds: 10
+      httpGet:
+        path: "/"
+        port: 8080
