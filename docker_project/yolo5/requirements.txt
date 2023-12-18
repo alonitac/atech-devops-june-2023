@@ -1,8 +1,14 @@
 flask
 pyyaml
 loguru
-
+pymongo
+boto3
+pathlib
+detect
+uuid
+loguru
+telebot
+requests
 # testing
-
 pylint
 pytest
