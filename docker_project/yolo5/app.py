@@ -11,9 +11,11 @@ import shutil
 import requests
 from pymongo import MongoClient
 
+# Import necessary modules for S3 operations
 import boto3
 from botocore.exceptions import NoCredentialsError
 
+# Define the S3 bucket name
 images_bucket = os.environ.get('BUCKET_NAME')
 
 # Load COCO names from the YAML file
