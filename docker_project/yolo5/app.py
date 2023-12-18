@@ -16,7 +16,9 @@ import boto3
 from botocore.exceptions import NoCredentialsError
 
 # Define the S3 bucket name
-images_bucket = os.environ.get('BUCKET_NAME')
+images_bucket = os.environ['BUCKET_NAME']
+aws_acces_key_id = os.environ['AWS_ACCESS_KEY_ID']
+aws_secret_acces_key = os.environ['AWS_SECRET_ACCESS_KEY']
 
 # Load COCO names from the YAML file
 with open("data/coco128.yaml", "r") as stream:
@@ -111,7 +113,6 @@ def store_prediction_in_mongodb(prediction_summary):
     """
     Stores the prediction summary in MongoDB.
     """
-    from pymongo import MongoClient
 
     # Connect to a local MongoDB server without authentication
     client = MongoClient(os.environ.get('MONGODB_URI'))
