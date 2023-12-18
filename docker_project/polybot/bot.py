@@ -1,10 +1,13 @@
 import telebot
 from loguru import logger
 import os
+from pathlib import Path
 import time
 from telebot.types import InputFile
+import boto3
+import requests
 
-
+BUCKET_NAME="abzahbucket"
 class Bot:
 
     def __init__(self, token, telegram_chat_url):
@@ -47,8 +50,8 @@ class Bot:
 
         with open(file_info.file_path, 'wb') as photo:
             photo.write(data)
-
-        return file_info.file_path
+        logger.info(f"the local path is {file_info.file_path}")
+        return str(file_info.file_path)
 
     def send_photo(self, chat_id, img_path):
         if not os.path.exists(img_path):
@@ -74,12 +77,57 @@ class QuoteBot(Bot):
 
 
 class ObjectDetectionBot(Bot):
-    def handle_message(self, msg):
-        logger.info(f'Incoming message: {msg}')
+    import boto3
 
-        if self.is_current_msg_photo(msg):
-            pass
             # TODO download the user photo (utilize download_user_photo)
             # TODO upload the photo to S3
             # TODO send a request to the `yolo5` service for prediction
             # TODO send results to the Telegram end-user
+
+    def handle_message(self, msg):
+        logger.info(f'Incoming message: {msg}')
+
+        if self.is_current_msg_photo(msg):
+            try:
+                local_path = self.download_user_photo(msg)
+                s3_path = f'images/{os.path.basename(local_path)}'
+                self.upload_to_s3(local_path, s3_path)
+                logger.info(f'@@@@@@@@@@@')
+                results = self.predict_objects(s3_path)
+                self.send_text(msg['chat']['id'], f'Object detection results: {results}')
+
+            except Exception as e:
+                logger.error(f'Error processing photo: {str(e)}')
+                self.send_text(msg['chat']['id'], f'Error processing photo: {str(e)}')
+        else:
+            self.send_text(msg['chat']['id'], 'Please send a photo for object detection.')
+
+    def upload_to_s3(self, local_path, s3_path):
+        """
+        Uploads the predicted image to S3 without overriding the original image.
+        """
+        s3 = boto3.client('s3')
+       ##### bucket_name = os.environ.get('BUCKET_NAME')
+
+        try:
+            logger.info(f'\n local_path ,,,,,,,,,{local_path}\n')
+            logger.info(f'uploading {local_path} to   ,,,,,,,,,{BUCKET_NAME}/{s3_path}')
+            s3.upload_file(Path(local_path), BUCKET_NAME, s3_path)
+            #except NoCredentialsError:
+            #raise Exception('AWS credentials not available. Check your configuration.')
+        except Exception as e:
+            raise Exception(f'Failed to upload predicted image to S3: {str(e)}')
+
+
+    def predict_objects(self, img_url):
+        try:
+            logger.info(f'\nimg_url = {img_url}\n')
+            response = requests.post(f"http://172.18.0.5:8081/predict?imgName={img_url}")
+            if response.status_code == 200:
+                return response.json()
+            else:
+                logger.error(f"Prediction request failed: {response.text}")
+                return None
+        except requests.exceptions.RequestException as e:
+            logger.error(f"Request error: {e}")
+            return None
