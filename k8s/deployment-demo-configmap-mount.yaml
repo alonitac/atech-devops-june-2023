@@ -27,7 +27,7 @@ spec:
             mountPath: /etc/secret-volume
             readOnly: true
       volumes:
-        - name: secret-volume
+        - name: email-templates-vol
           configMap:
             name: email-templates
         - name: secret-volume
