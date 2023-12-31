@@ -1,0 +1,4 @@
+nginx_listen_port: 8080
+server_name: example.com
+document_root: /var/www/html-custom
+index_file: index.html
