@@ -14,7 +14,7 @@ PRIVATE_EC2_IP=$(echo $PRIVATE_EC2 | jq -r '.Reservations[0].Instances[0].Privat
 echo "$COURSE_STAFF_SSH_KEY" > course_staff
 chmod 400 course_staff
 
-export KEY_PATH=course_staff
+export KEY_PATH=$(pwd)/course_staff
 OLD_KEYS=$(bash ../bastion_connect.sh $PUBLIC_EC2_IP $PRIVATE_EC2_IP "cat ~/.ssh/authorized_keys")
 
 ssh -i $KEY_PATH ubuntu@$PUBLIC_EC2_IP "./ssh_keys_rotation.sh $PRIVATE_EC2_IP"
