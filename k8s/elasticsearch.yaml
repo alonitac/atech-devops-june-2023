@@ -15,7 +15,7 @@ spec:
    spec:
      containers:
      - name: elasticsearch
-       image: elasticsearch:8.11.1
+       image: elasticsearch:7.17.16
        env:
        - name: "discovery.type"
          value: "single-node"
