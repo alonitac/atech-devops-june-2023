@@ -1,0 +1,19 @@
+# k8s/ingress-demo.yaml
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: online-boutique-ing
+spec:
+  rules:
+  - host: # TODO YOUR LB DOMAIN HERE. e.g. www.example.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: frontend
+            port:
+              number: 80
+  ingressClassName: nginx
