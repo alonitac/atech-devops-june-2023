@@ -28,7 +28,7 @@ else
   then
     echo -e "\n\ngood bastion_connect.sh script! well done!"
   else
-     echo -e "\n\nbad bastion_connect.sh script. bastion_connect.sh connected to instances different as specified in vpc.sh"
+     echo -e "\n\nbad bastion_connect.sh script. bastion_connect.sh connected to private instance and tried to execute the command 'printenv', but either the command was not executed properly, or it was connected to a different private machine to what specified in vpc.sh"
      exit 1
   fi
 fi
