@@ -25,8 +25,6 @@ spec:
           value: # TODO products db name here
         - name: MONGODB_PRODUCTS_COLLECTION_NAME
           value: # TODO products collection name here
-        - name: MONGODB_URI
-          value: mongodb://<MONGO_PRIMARY_DNS>:27017/?replicaSet=myReplicaSet
         - name: PORT
           value: "3550"
         - name: DISABLE_PROFILER

@@ -1,3 +1,5 @@
+# k8s/mongo-statefulset.yaml
+
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -13,7 +15,6 @@ spec:
       labels:
         app: mongo
     spec:
-      terminationGracePeriodSeconds: 10
       containers:
         - name: mongo
           image: mongo:5
@@ -31,6 +32,7 @@ spec:
   - metadata:
       name: mongo-persistent-storage
     spec:
+      storageClassName: standard
       accessModes: [ "ReadWriteOnce" ]
       resources:
         requests:
@@ -43,9 +45,9 @@ metadata:
   labels:
     app: mongo
 spec:
-  ports:
-  - port: 27017
-    targetPort: 27017
   clusterIP: None
   selector:
     app: mongo
+  ports:
+  - port: 27017
+    targetPort: 27017

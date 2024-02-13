@@ -5,6 +5,7 @@ kind: Ingress
 metadata:
   name: online-boutique-ing
 spec:
+  ingressClassName: nginx
   rules:
   - host: # TODO YOUR LB DOMAIN HERE. e.g. www.example.com
     http:
@@ -16,4 +17,3 @@ spec:
             name: frontend
             port:
               number: 80
-  ingressClassName: nginx

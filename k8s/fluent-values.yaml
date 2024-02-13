@@ -1,3 +1,6 @@
+configMapConfigs:
+  - fluentd-prometheus-conf
+
 fileConfigs:
   04_outputs.conf: |-
     <label @OUTPUT>
